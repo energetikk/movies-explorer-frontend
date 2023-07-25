@@ -1,23 +1,93 @@
-import logo from '../../images/logo.svg';
-import './App.css';
+import React from "react";
+import { useState, useEffect } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import Header from "../Header/Header";
+// import Main from "./Main";
+// import Footer from "./Footer";
+// import ImagePopup from "./ImagePopup";
+// import api from "../utils/api";
+// import EditProfilePopup from "./EditProfilePopup";
+// import EditAvatarPopup from "./EditAvatarPopup";
+// import AddPlacePopup from "./AddPlacePopup";
+// import ConfirmDeletePopup from "./ConfirmDeletePopup";
+// import { Routes, Route, Navigate } from 'react-router-dom';
+// import Login from "./Login";
+// import Register from "./Register";
+// import ProtectedRoute from './ProtectedRoute'
+// import PageNotFound from "./PageNotFound";
+// import * as Auth from '../utils/Auth';
+// import { useNavigate } from "react-router-dom";
+// import InfoTooltip from './InfoTooltip'
+// import logoSuccess from '../images/success.png'
+// import logoError from '../images/nosuccess.png'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+    {/* <CurrentUserContext.Provider value={currentUser}>
+      {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/> 
+      <Routes>
+        <Route path="/sign-up" element={<Register handleCheckRegister={handleCheckRegister}/>} />
+        <Route path="/sign-in" element={<Login handleCheckLogin={handleCheckLogin}/>} />
+        <Route  path="/" element={<ProtectedRoute element={Main} loggedIn={loggedIn} 
+        onEditProfile={handleEditProfileClick}
+        onAddPlace={handleAddPlaceClick}
+        onEditAvatar={handleEditAvatarClick}
+        onCardClick={handleCardClick}
+        onCardLike={handleCardLike}
+        onConfirmDelete={handleConfirmPopupOpen}
+        cards={cards}/>} />
+        <Route path="/" element={loggedIn ? <Navigate to ="/" /> : <Navigate to="/sign-in" replace/>}/>
+        <Route path="*" element={<PageNotFound />}/>
+      </Routes>
+        
+        {loggedIn && <Footer />}
+
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+        />
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateCards={handleAddPlaceSubmit}
+        />
+        <ImagePopup
+          card={selectedCard}
+          isOpen={isImagePopupOpen}
+          onClose={closeAllPopups}
+        />
+        <ConfirmDeletePopup
+          isOpen={isConfirmDeletePopupOpen}
+          onClose={closeAllPopups}
+          onSubmitConfirmDelete={handleCardDelete}
+        />
+        <InfoTooltip name={'message'} logo={logoError} textMessage={"Что-то пошло не так! Попробуйте еще раз."} isOpen={isStatusLoginError} onClose={closeAllPopups} />
+        <InfoTooltip name={'message'}  logo={logoSuccess} textMessage={"Вы успешно зарегистрировались!"} isOpen={isStatusLoginOk} onClose={closeAllPopups} />
+
+      </CurrentUserContext.Provider> */}
     </div>
   );
 }
