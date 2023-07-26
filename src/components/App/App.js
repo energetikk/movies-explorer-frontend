@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
+import PageNotFound from "../PageNotFound/PageNotFound";
 // import Main from "./Main";
 // import Footer from "./Footer";
 // import ImagePopup from "./ImagePopup";
@@ -11,8 +12,8 @@ import Header from "../Header/Header";
 // import AddPlacePopup from "./AddPlacePopup";
 // import ConfirmDeletePopup from "./ConfirmDeletePopup";
 // import { Routes, Route, Navigate } from 'react-router-dom';
-// import Login from "./Login";
-// import Register from "./Register";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -39,13 +40,16 @@ import Header from "../Header/Header";
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      {/* <PageNotFound /> */}
+      {/* <Login /> */}
+      <Register />
     {/* <CurrentUserContext.Provider value={currentUser}>
-      {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/> 
+      {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>
       <Routes>
         <Route path="/sign-up" element={<Register handleCheckRegister={handleCheckRegister}/>} />
         <Route path="/sign-in" element={<Login handleCheckLogin={handleCheckLogin}/>} />
-        <Route  path="/" element={<ProtectedRoute element={Main} loggedIn={loggedIn} 
+        <Route  path="/" element={<ProtectedRoute element={Main} loggedIn={loggedIn}
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
@@ -56,7 +60,7 @@ function App() {
         <Route path="/" element={loggedIn ? <Navigate to ="/" /> : <Navigate to="/sign-in" replace/>}/>
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
-        
+
         {loggedIn && <Footer />}
 
         <EditProfilePopup
