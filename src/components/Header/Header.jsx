@@ -9,12 +9,12 @@ function Header({loggedIn, emailUser, singOut}) {
     <>
       <header className="auth">
       <img src={logo} alt="Логотип соцсети Mesto" className="header__logo" />
-        {loggedIn ? (
+        {true ? (
           <div className="qwe">
             <Link className="header__email">Фильмы</Link>
             <Link className="header__email">Сохраненые фильмы</Link>
             {/* <p className="header__email">{emailUser}</p> */}
-            <Link onClick={singOut} to="/sign-in" className="header__singout" >Аккаунт</Link> 
+            <Link onClick={singOut} to="/sign-in" className="header__singout" >Аккаунт</Link>
             {/* <Link onClick={singOut} to="/sign-in" className="header__singout" >Выйти22222</Link>  */}
           </div> ) : (
             <>

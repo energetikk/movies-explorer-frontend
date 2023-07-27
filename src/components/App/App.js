@@ -14,6 +14,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 // import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import Profile from "../Profile/Profile";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -40,10 +41,11 @@ import Register from "../Register/Register";
 function App() {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
+      <Profile />
       {/* <PageNotFound /> */}
       {/* <Login /> */}
-      <Register />
+      {/* <Register /> */}
     {/* <CurrentUserContext.Provider value={currentUser}>
       {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>
       <Routes>
