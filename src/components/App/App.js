@@ -15,6 +15,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
+import Main from "../Main/Main";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -25,24 +26,12 @@ import Profile from "../Profile/Profile";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function App() {
   return (
     <div>
       <Header />
-      <Profile />
+      {/* <Profile /> */}
+      <Main />
       {/* <PageNotFound /> */}
       {/* <Login /> */}
       {/* <Register /> */}
