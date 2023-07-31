@@ -16,8 +16,6 @@ const Techs = () => {
           <li className="techs__item">Express.JS</li>
           <li className="techs__item">mongoDB</li>
         </ul>
-      {/* </div> */}
-
     </article>
   )
 };

@@ -4,6 +4,8 @@ import NavTab from "./NavTab/NavTab";
 import AboutProject from "./AboutProject/AboutProject";
 import Techs from "./Techs/Techs"
 import './Main.css';
+import AboutMe from "./AboutMe/AboutMe";
+import Portfolio from "./Portfolio/Portfolio";
 
 const Main = () => {
   return (
@@ -12,6 +14,8 @@ const Main = () => {
       <NavTab />
       <AboutProject />
       <Techs />
+      <AboutMe />
+      <Portfolio />
     </div>
   )
 };

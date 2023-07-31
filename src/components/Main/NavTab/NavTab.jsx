@@ -1,14 +1,14 @@
 import React from "react";
 import './NavTab.css';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const NavTab = (props) => {
   return (
     <div>
       <nav className="navtab">
-        <Link className="navtab__link">О проекте</Link>
-        <Link className="navtab__link">Технологии</Link>
-        <Link className="navtab__link">Студент</Link>
+        <a href="/" className="navtab__link">О проекте</a>
+        <a href="/"className="navtab__link">Технологии</a>
+        <a href="/" className="navtab__link">Студент</a>
       </nav>
     </div>
   )

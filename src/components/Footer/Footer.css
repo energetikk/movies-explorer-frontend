@@ -1,0 +1,14 @@
+.footer {
+  background-color: #202020;
+  display: flex;
+  margin: 0 auto;
+  max-width: 100%;
+  min-height: 608px;
+  flex-direction: column;
+
+
+}
+
+.footer__copyright {
+  color: aliceblue;
+}

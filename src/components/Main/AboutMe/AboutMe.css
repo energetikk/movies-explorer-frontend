@@ -1,0 +1,82 @@
+.aboutme {
+  background-color: #202020;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1140px;
+  /* min-height: 608px; */
+  flex-direction: column;
+
+}
+
+.aboutme__container {
+  display: flex;
+  margin-top: 66px;
+  justify-content: space-between;
+}
+
+.aboutme__bio {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.aboutme__title {
+  margin: 110px 0 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+.aboutme__title::after {
+  display: block;
+  width: 1140px;
+  content: '';
+  margin-top: 23px;
+  border-bottom: 1px #DADADA solid;
+}
+
+.aboutme__name {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+}
+
+.aboutme__job {
+  margin: 18px 0 26px;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.aboutme__info {
+  max-width: 600px;
+  margin: 0 0 99px;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.aboutme__link-github {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: white;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  /* margin-bottom: 101px; */
+}
+
+.aboutme__photo {
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+}

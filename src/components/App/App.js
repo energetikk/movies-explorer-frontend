@@ -16,6 +16,7 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
 import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -32,6 +33,7 @@ function App() {
       <Header />
       {/* <Profile /> */}
       <Main />
+      <Footer />
       {/* <PageNotFound /> */}
       {/* <Login /> */}
       {/* <Register /> */}
