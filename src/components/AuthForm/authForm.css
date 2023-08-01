@@ -77,16 +77,12 @@
   padding: 0;
 }
 
-.auth {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.qwe {
+
+/* .qwe {
   display: flex;
   align-items: center;
-}
+} */
 
 
 .Error {

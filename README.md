@@ -1,3 +1,15 @@
+# link on diploma maket figma 
+https://disk.yandex.ru/d/MbBmX_q3nhodJQ
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

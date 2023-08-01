@@ -1,7 +1,7 @@
 .portfolio {
   background-color: #202020;
   display: flex;
-  margin: 101px auto 125px;
+  margin: 101px auto 0;
   max-width: 1140px;
   flex-direction: column;
 }
