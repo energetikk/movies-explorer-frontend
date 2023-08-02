@@ -1,5 +1,5 @@
 .header {
-    max-width: 1140px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -11,11 +11,20 @@
     background-color: #202020;
   }
 
+  .auth-container {
+    /* background-color: #073042; */
+  }
+
+  .header__logo {
+    padding-left: 70px;
+  }
+
   .auth {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    padding-right: 70px;
   }
 
   .auth_button {
@@ -99,6 +108,7 @@
     display: flex;
     align-items: center;
     opacity: 1;
+    padding-right: 70px;
   }
 
   .header__account:hover {

@@ -9,12 +9,11 @@ import { Link } from "react-router-dom";
 function Header({ loggedIn, emailUser, singOut }) {
 
 
-  const fonHeader = loggedIn ? 'header__background_dark' : '';
+  const backgroundHeader = loggedIn ? 'header__background_dark' : '';
   // const location = useLocation();
   return (
     <div className="auth-container">
-    {/* // <div className={fonHeader}> */}
-      <header className={`header ${fonHeader}`}>
+      <header className={`header ${backgroundHeader}`}>
         <Link to="/">
           <img
             src={logo}
