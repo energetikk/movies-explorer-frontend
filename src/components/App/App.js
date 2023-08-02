@@ -28,9 +28,10 @@ import Footer from "../Footer/Footer";
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
     <div>
-      <Header />
+      <Header loggedIn={loggedIn}/>
       {/* <Profile /> */}
       <Main />
       <Footer />

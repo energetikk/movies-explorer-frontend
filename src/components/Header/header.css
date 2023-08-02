@@ -7,15 +7,15 @@
     background-color: #073042;
   }
 
+  .header__background_dark {
+    background-color: #202020;
+  }
+
   .auth {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-  }
-
-  .auth-container {
-    background-color: #073042;
   }
 
   .auth_button {
@@ -55,4 +55,53 @@
     font-size: 12px;
     line-height: 16px;
     margin-right: 30px;
+  }
+
+  .header__films {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .header__savied-films {
+    text-decoration: none;
+    margin: 0 50px 0 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: white;
+  }
+
+  .header__button-account {
+    text-decoration: none;
+    color: white;
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 12px;
+    margin: 0 7px 0 0;
+
+  }
+
+  .header__account-icon {
+    width: 26px;
+    height: 26px;
+    background-color: #313131;
+    border-radius: 50%;
+    background-image: url(../../images/icon_user.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .header__account {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+  }
+
+  .header__account:hover {
+    opacity: .5;
+    transition: 1s linear .2s ease-in-out;
   }
