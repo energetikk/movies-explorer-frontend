@@ -1,0 +1,62 @@
+/* Скрыть оригинальный чекбокс */
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Создание визуального переключателя */
+.checkbox-toggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  border-radius: 16px;
+  background-color: #C4C4C4;
+  margin-right: 14px;
+}
+
+/* Отображение состояния включено/выключено */
+.checkbox-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #A0A0A0;
+  transition: transform 0.3s ease;
+}
+
+/* Стилизация чекбокса, когда он отмечен */
+input[type="checkbox"]:checked + .checkbox-toggle::before {
+  transform: translateX(15px);
+  background-color: white;
+}
+
+
+label {
+  display: block;
+  background-color: #EBEBEB;
+  cursor: pointer;
+  margin-left: 14px;
+
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: #2BE080;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.filter-checkbox-name {
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}

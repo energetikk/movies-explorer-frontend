@@ -17,6 +17,7 @@ import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import SearchForm from "../SearchForm/SearchForm";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -30,14 +31,15 @@ import Footer from "../Footer/Footer";
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   return (
-    <div>
+    <div className="app__center">
       <Header loggedIn={loggedIn}/>
       {/* <Profile /> */}
-      <Main />
-      <Footer />
+      {/* <Main /> */}
+      {/* <Footer /> */}
       {/* <PageNotFound /> */}
       {/* <Login /> */}
       {/* <Register /> */}
+      <SearchForm />
     {/* <CurrentUserContext.Provider value={currentUser}>
       {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>
       <Routes>
