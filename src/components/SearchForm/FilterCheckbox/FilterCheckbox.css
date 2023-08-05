@@ -41,7 +41,6 @@ label {
   display: block;
   background-color: #EBEBEB;
   cursor: pointer;
-  margin-left: 14px;
 
 }
 
@@ -52,6 +51,7 @@ input[type="checkbox"]:checked + label {
 .filter-checkbox {
   display: flex;
   align-items: center;
+  margin: 33px 0 48px;
 }
 
 .filter-checkbox-name {
@@ -59,4 +59,6 @@ input[type="checkbox"]:checked + label {
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
+  margin: 0;
+  padding: 0;
 }

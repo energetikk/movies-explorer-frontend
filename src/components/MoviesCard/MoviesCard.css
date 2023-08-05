@@ -1,0 +1,67 @@
+.movie {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movies__element {
+  border-radius: 10px;
+  max-width: 270px;
+  min-height: 218;
+  background-color: #222222;
+}
+
+.movies-card {
+  object-fit: cover;
+  width: 270px;
+  height: 151px;
+  border-radius: 10px 10px 0 0;
+}
+
+.movies__card-name {
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  max-width: 206px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+}
+
+.movies__button-like {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #313131;
+  border: 2px white solid;
+  border-radius: 50%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.movies__button-like_acrive {
+  background-color: #2BE080;
+}
+
+.movie__duration {
+  margin: 0;
+  padding-left: 12px;
+  padding-bottom: 14px;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8B8B8B;
+}
+
+.movies__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin: 14px 12px 10px 12px;
+}

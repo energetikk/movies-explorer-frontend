@@ -8,32 +8,73 @@ const validationConfig = {
   errorClass: 'popup__error_visible'
 };
 
-//Массив данных для загрузки первых 6-ти карточек на страницу
+//Массив данных для загрузки первых карточек на страницу
 const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: '33 слова о дизайне1',
+    link: '/images/preview/1.png'
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: '33 слова о дизайне1',
+    link: '/images/preview/2.png'
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: '33 слова о дизайне1',
+    link: '/images/preview/3.png'
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: '33 слова о дизайне1',
+    link: '/images/preview/4.png'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: '33 слова о дизайне1',
+    link: '/images/preview/5.png'
   },
   {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
+    name: '33 слова о дизайне1',
+    link: '/images/preview/6.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/7.png'
+  },
+
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/8.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/9.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/10.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/11.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/12.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/13.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/14.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/15.png'
+  },
+  {
+    name: '33 слова о дизайне1',
+    link: '/images/preview/16.png'
+  },
 ];
 
 export {initialCards, validationConfig}

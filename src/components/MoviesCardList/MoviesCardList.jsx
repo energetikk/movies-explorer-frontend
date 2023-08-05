@@ -1,11 +1,24 @@
 import React from "react";
 import './MoviesCardList.css';
+import { initialCards } from "../../utils/constants";
+import MoviesCard from "../MoviesCard/MoviesCard";
 
 const MoviesCardList = (props) => {
   return (
-    <div>
+    <section className="places">
+        <ul className="places__photo-cards">
+          {initialCards.map((card) => (
+            <MoviesCard
+              key={card.index}
+              card={card}
 
-    </div>
+              // onCardClick={onCardClick}
+              // onCardLike={onCardLike}
+              // onConfirmDelete={onConfirmDelete}
+            />
+          ))}
+        </ul>
+      </section>
   )
 };
 

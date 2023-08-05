@@ -18,6 +18,8 @@ import Profile from "../Profile/Profile";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
+// import MoviesCard from "../../components/MoviesCard/MoviesCard";
+import MoviesCardList from "../../components/MoviesCardList/MoviesCardList";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -40,6 +42,8 @@ function App() {
       {/* <Login /> */}
       {/* <Register /> */}
       <SearchForm />
+      {/* <MoviesCard /> */}
+      <MoviesCardList />
     {/* <CurrentUserContext.Provider value={currentUser}>
       {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>
       <Routes>
