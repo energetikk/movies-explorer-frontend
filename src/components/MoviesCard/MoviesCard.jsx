@@ -13,7 +13,7 @@ const MoviesCard = ({card}) => {
             <button type="button" className="movies__button-like"></button>
           </div>
         </figcaption>
-            <p className="movie__duration">1ч42м</p>
+        <p className="movie__duration">1ч42м</p>
       </figure>
     </li>
   );

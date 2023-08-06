@@ -5,6 +5,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 const MoviesCardList = (props) => {
   return (
+    <>
     <section className="places">
         <ul className="places__photo-cards">
           {initialCards.map((card) => (
@@ -18,7 +19,9 @@ const MoviesCardList = (props) => {
             />
           ))}
         </ul>
+      <button type="button" className="movies__more-button">Ещё</button>
       </section>
+    </>
   )
 };
 

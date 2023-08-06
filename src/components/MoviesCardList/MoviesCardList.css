@@ -1,5 +1,31 @@
 .places__photo-cards {
   display: flex;
-  max-width: 1140px;
+  max-width: 1160px;
   flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 0 48px;
+  /* padding-bottom: 50px; */
+
+}
+
+.places {
+  max-width: 1280px;
+  background-color: #202020;
+}
+
+.movies__more-button {
+  width: 320px;
+  height: 36px;
+  background-color: #2F2F2F;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin: 0 auto;
+  /* padding: 50px 0 80px; */
+  padding: 0;
+  display: block;
 }

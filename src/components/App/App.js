@@ -37,13 +37,13 @@ function App() {
       <Header loggedIn={loggedIn}/>
       {/* <Profile /> */}
       {/* <Main /> */}
-      {/* <Footer /> */}
       {/* <PageNotFound /> */}
       {/* <Login /> */}
       {/* <Register /> */}
       <SearchForm />
       {/* <MoviesCard /> */}
       <MoviesCardList />
+      <Footer />
     {/* <CurrentUserContext.Provider value={currentUser}>
       {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>
       <Routes>
