@@ -51,7 +51,7 @@ function AuthForm({
               minLength="2"
               maxLength="40"
               type="text"
-              //  placeholder="Имя"
+              placeholder="Имя"
               name="nameuser"
               className="form__item-auth form__item_el_nameuser"
               onChange={handleChangeInput}
@@ -70,7 +70,7 @@ function AuthForm({
           minLength="2"
           maxLength="40"
           type="email"
-          // placeholder="E-mail"
+          placeholder="E-mail"
           name="email"
           className="form__item-auth form__item_el_email"
           onChange={handleChangeInput}
@@ -87,7 +87,7 @@ function AuthForm({
           minLength="2"
           maxLength="200"
           type="password"
-          // placeholder="Пароль"
+          placeholder="Пароль"
           name="password"
           className="form__item-auth form__item_el_password"
           onChange={handleChangeInput}

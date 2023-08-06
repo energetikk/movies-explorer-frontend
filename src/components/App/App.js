@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import './App.css';
 // import Main from "./Main";
 // import Footer from "./Footer";
 // import ImagePopup from "./ImagePopup";
@@ -11,7 +12,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 // import EditAvatarPopup from "./EditAvatarPopup";
 // import AddPlacePopup from "./AddPlacePopup";
 // import ConfirmDeletePopup from "./ConfirmDeletePopup";
-// import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
@@ -19,10 +20,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 // import MoviesCard from "../../components/MoviesCard/MoviesCard";
-import MoviesCardList from "../../components/MoviesCardList/MoviesCardList";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import { initialCards, moviesFavorite } from "../../utils/constants";
-// import { moviesFavorite } from "../../utils/constants";
 import Movies from "../Movies/Movies";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
@@ -35,20 +34,19 @@ import Movies from "../Movies/Movies";
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
+  const [loggedIn, setLoggedIn] = useState(false);
   const [initialMovies, setInitialMovies] = useState(initialCards);
   console.log(initialMovies);
   return (
     <div className="app__center">
       <Header loggedIn={loggedIn}/>
-      <Profile />
+      {/* <Profile /> */}
       <Main />
-      {/* <PageNotFound /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
+      <PageNotFound />
+      <Login />
+      <Register />
       <SearchForm />
-      {/* <MoviesCard /> */}
-      {/* <MoviesCardList /> */}
       <Movies initialMovies={initialMovies}/>
       <SavedMovies initialMovies={moviesFavorite}/>
       <Footer />
