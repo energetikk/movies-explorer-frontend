@@ -20,6 +20,10 @@ import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 // import MoviesCard from "../../components/MoviesCard/MoviesCard";
 import MoviesCardList from "../../components/MoviesCardList/MoviesCardList";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import { initialCards, moviesFavorite } from "../../utils/constants";
+// import { moviesFavorite } from "../../utils/constants";
+import Movies from "../Movies/Movies";
 // import ProtectedRoute from './ProtectedRoute'
 // import PageNotFound from "./PageNotFound";
 // import * as Auth from '../utils/Auth';
@@ -27,22 +31,26 @@ import MoviesCardList from "../../components/MoviesCardList/MoviesCardList";
 // import InfoTooltip from './InfoTooltip'
 // import logoSuccess from '../images/success.png'
 // import logoError from '../images/nosuccess.png'
-
+// import { initialCards } from "../../utils/constants";
 
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
+  const [initialMovies, setInitialMovies] = useState(initialCards);
+  console.log(initialMovies);
   return (
     <div className="app__center">
       <Header loggedIn={loggedIn}/>
-      {/* <Profile /> */}
-      {/* <Main /> */}
+      <Profile />
+      <Main />
       {/* <PageNotFound /> */}
       {/* <Login /> */}
       {/* <Register /> */}
       <SearchForm />
       {/* <MoviesCard /> */}
-      <MoviesCardList />
+      {/* <MoviesCardList /> */}
+      <Movies initialMovies={initialMovies}/>
+      <SavedMovies initialMovies={moviesFavorite}/>
       <Footer />
     {/* <CurrentUserContext.Provider value={currentUser}>
       {/* <Header loggedIn={loggedIn} emailUser={emailUser} singOut={singOut}/>

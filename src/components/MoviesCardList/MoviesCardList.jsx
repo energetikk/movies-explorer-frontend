@@ -1,28 +1,29 @@
 import React from "react";
-import './MoviesCardList.css';
-import { initialCards } from "../../utils/constants";
+import "./MoviesCardList.css";
+// import { initialCards } from "../../utils/constants";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-const MoviesCardList = (props) => {
+const MoviesCardList = ({ initialMovies }) => {
   return (
     <>
-    <section className="places">
+      <section className="places">
         <ul className="places__photo-cards">
-          {initialCards.map((card) => (
+          {initialMovies.map((card) => (
             <MoviesCard
               key={card.index}
               card={card}
-
-              // onCardClick={onCardClick}
-              // onCardLike={onCardLike}
-              // onConfirmDelete={onConfirmDelete}
+              initialMovies={initialMovies}
             />
           ))}
         </ul>
-      <button type="button" className="movies__more-button">Ещё</button>
+        {initialMovies.length > 4 && (
+          <button type="button" className="movies__more-button">
+            Ещё
+          </button>
+        )}
       </section>
     </>
-  )
+  );
 };
 
 export default MoviesCardList;

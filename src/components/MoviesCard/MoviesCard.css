@@ -52,8 +52,16 @@
   background-repeat: no-repeat;
 }
 
-.movies__button-like_acrive {
+.movies__button-like_active {
   background-color: #2BE080;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 2px white solid;
+  border-radius: 50%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .movie__duration {
@@ -73,4 +81,15 @@
   align-items: center;
   margin: 0 auto;
   margin: 14px 12px 10px 12px;
+}
+
+.movies__button-delete {
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-image: url("../../images/icon_delete_from_favorite.svg");
+  background-size: cover;
+  background-position: center;
+  padding: 0;
 }

@@ -1,10 +1,12 @@
 import React from "react";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import './Movies.css';
 
-const Movies = (props) => {
+const Movies = ({initialMovies}) => {
+  // console.log(movies);
   return (
     <div>
-
+      <MoviesCardList initialMovies={initialMovies}/>
     </div>
   )
 };
