@@ -84,14 +84,12 @@
   }
 
   .header__button-account {
-    text-decoration: none;
     color: white;
     font-family: "Inter", "Arial", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 13px;
     line-height: 12px;
     margin: 0 7px 0 0;
-
   }
 
   .header__account-icon {
@@ -109,9 +107,27 @@
     align-items: center;
     opacity: 1;
     padding-right: 70px;
+    text-decoration: none;
   }
 
   .header__account:hover {
     opacity: .5;
     transition: 1s linear .2s ease-in-out;
+  }
+
+  .header__films_active {
+    font-weight: 500;
+  }
+
+  .header__savied-films_active {
+    font-weight: 500;
+  }
+
+  .header__button-account_active {
+    text-decoration: none;
+    color: #3DDC84;
+  }
+
+ .header__account_active {
+    font-weight: 500;
   }

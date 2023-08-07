@@ -110,7 +110,7 @@ function AuthForm({
       ) : (
         <div className="link-auth">
           <p className="question-auth">Еще не зарегестрированы?</p>
-          <Link to="/sign-in" className="button__sign-in">
+          <Link to="/sign-up" className="button__sign-in">
             Регистрация
           </Link>
         </div>

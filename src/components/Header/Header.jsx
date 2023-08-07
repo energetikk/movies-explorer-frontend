@@ -1,16 +1,17 @@
 import React from "react";
 import logo from "../../images/logo_header.png";
 // import {useLocation} from "react-router-dom"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 
 
-function Header({ loggedIn, emailUser, singOut }) {
+function Header({ loggedIn }) {
 
 
   const backgroundHeader = loggedIn ? 'header__background_dark' : '';
   // const location = useLocation();
+  const isActive = true;
   return (
     <div className="auth-container">
       <header className={`header ${backgroundHeader}`}>
@@ -22,14 +23,14 @@ function Header({ loggedIn, emailUser, singOut }) {
           />
         </Link>
         {loggedIn ? (
-          <div className="header__movies">
-            <Link className="header__films">Фильмы</Link>
-            <Link className="header__savied-films">Сохраненые фильмы</Link>
-            <Link onClick={singOut} to="/sign-in" className="header__account">
+          <nav className="header__movies">
+            <NavLink to="/movies" className={({isActive}) => `header__films ${isActive ? "header__films_active" : ""}`}>Фильмы</NavLink>
+            <NavLink to="/saved-movies" className={({isActive}) => `header__savied-films ${isActive ? "header__savied-films_active" : ""}`}>Сохраненые фильмы</NavLink>
+            <NavLink to="/profile" className={({isActive}) => `header__account ${isActive ? "header__account_active" : ""}`}>
               <p className="header__button-account">Аккаунт</p>
               <div className="header__account-icon"></div>
-            </Link>
-          </div>
+            </NavLink>
+          </nav>
         ) : (
           <div className="auth">
             <Link className="header__button-signup" to="/sign-up">
