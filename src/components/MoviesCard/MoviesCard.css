@@ -1,7 +1,7 @@
 .movie {
   list-style: none;
-  /* padding: 0; */
-  /* margin: 0; */
+  padding: 0;
+  margin: 0;
   width: 270px;
   height: 218px;
   margin: 0 20px 32px 0;
@@ -14,10 +14,9 @@
   margin: 0;
 }
 
-.movies__element:nth-child(4n) {
-  /* margin: 0 0 32px 0; */
+.movie:nth-child(4n) {
+  margin: 0 0 32px 0;
 }
-
 
 .movies-card {
   object-fit: cover;
