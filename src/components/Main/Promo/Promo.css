@@ -4,23 +4,23 @@
   min-height: 524px;
   background-color: #073042;
   position: relative;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 
 .promo__logo {
   position: absolute;
-
+  align-self: center;
 }
 
 .promo__title {
   text-align: center;
-  margin: 0;
+  margin: 184px 0 0 0;
   max-width: 730px;
   color: white;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
-
+  letter-spacing: -2px
 }

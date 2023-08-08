@@ -1,10 +1,13 @@
 .techs_container {
   background-color: #272727;
   display: flex;
-  min-height: 625px;
+  height: 625px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .techs {
@@ -13,7 +16,7 @@
   font-size: 22px;
   line-height: 27px;
   letter-spacing: -0.88px;
-  margin: 0;
+  margin: 100px 0 0 0;
   padding: 0;
 }
 
@@ -30,6 +33,7 @@
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
+  letter-spacing: -2px;
   margin: 90px 0 26px;
   padding: 0;
 }
@@ -37,17 +41,20 @@
 .techs__subtitle {
   margin: 0 0 100px;
   padding: 0;
+  max-width: 460px;
+  text-align: center;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  letter-spacing: -0.56px;
 }
 
 .techs__items {
   text-decoration: none;
   display: flex;
   text-align: center;
-  margin: 0 0 100px;
+  margin: 0 0 80px;
   padding: 0;
 }
 

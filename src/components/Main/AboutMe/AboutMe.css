@@ -3,7 +3,7 @@
   display: flex;
   margin: 0 auto;
   max-width: 1140px;
-  /* min-height: 608px; */
+  min-height: 508px;
   flex-direction: column;
 
 }
@@ -72,11 +72,11 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
-  /* margin-bottom: 101px; */
 }
 
 .aboutme__photo {
   width: 270px;
   height: 327px;
   object-fit: cover;
+  border-radius: 10px;
 }
