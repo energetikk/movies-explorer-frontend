@@ -23,7 +23,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile__container">
+    <section className="profile__container">
       <h2 className="profile__title">Привет, Павел!</h2>
 { editMode ?
       (<>
@@ -38,14 +38,18 @@ const Profile = () => {
       <button type="button" className="button__edit" onClick={editProfile}>Редактировать</button>
       <button type="button" className="button__logout" onClick={logOut}>Выйти из аккаунта</button></>) :
       (<>
-        <div className="profile__info">
-          <p className="profile__parameter">Имя</p>
-          <p className="profile__value">Дима</p>
-        </div>
-        <div className="profile__info">
-          <p className="profile__parameter">E-mail</p>
-          <p className="profile__value">email@yandex.ru</p>
-        </div>
+        {/* <form className="profile__info">
+          <label className="profile__parameter">Имя</label>
+          <input className="profile__value" value="Текстовое содержимое">Дима</input>
+        </form> */}
+        <form className="profile__info-edit">
+          <label className="profile__parameter">Имя</label>
+          <input type="text" className="profile__value-edit" defaultValue="Дима" />
+        </form>
+        <form className="profile__info-edit">
+          <label className="profile__parameter">E-mail</label>
+          <input className="profile__value-edit" defaultValue="email@yandex.ru" />
+        </form>
       {validationProfile ? (
         <div className="profile__save">
           <span className="profile__error">При обновлении профиля произошла ошибка.</span>
@@ -54,7 +58,7 @@ const Profile = () => {
     (<button type="button" className="button__save-profile" onClick={saveProfile}>Сохранить</button>)}
       </>)}
 
-    </div>
+    </section>
   )
 };
 

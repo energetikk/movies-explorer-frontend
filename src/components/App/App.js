@@ -19,7 +19,7 @@ import { useLocation } from "react-router-dom";
 
 function App() {
   //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [initialMovies, setInitialMovies] = useState(initialCards);
   const [currentUser, setCurrentUser] = useState({});
 
