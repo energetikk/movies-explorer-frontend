@@ -10,8 +10,8 @@ input[type="checkbox"] {
 .checkbox-toggle {
   position: relative;
   display: inline-block;
-  width: 36px;
-  height: 20px;
+  width: 34px;
+  height: 16px;
   border-radius: 15px;
   background-color: #C4C4C4;
   margin-right: 14px;
@@ -21,10 +21,10 @@ input[type="checkbox"] {
 .checkbox-toggle::before {
   content: "";
   position: absolute;
-  top: 3px;
+  top: 2px;
   left: 3px;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #A0A0A0;
   transition: transform 0.3s ease;
@@ -32,7 +32,7 @@ input[type="checkbox"] {
 
 /* Стилизация чекбокса, когда он отмечен */
 input[type="checkbox"]:checked + .checkbox-toggle::before {
-  transform: translateX(15px);
+  transform: translateX(16px);
   background-color: white;
 }
 

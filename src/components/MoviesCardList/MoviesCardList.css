@@ -3,8 +3,7 @@
   width: 1140px;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 0 0 48px;
-  /* padding-bottom: 50px; */
+  padding: 66px 0 48px;
 
 }
 
@@ -25,7 +24,6 @@
   border: none;
   border-radius: 6px;
   margin: 0 auto;
-  /* padding: 50px 0 80px; */
   padding: 0;
   display: block;
 }

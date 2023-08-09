@@ -95,7 +95,8 @@ function AuthForm({
         />
         <span id="input-password-error" className="popup__error">Что-то пошло не так...</span>
         </div>
-        <button type="submit" className="auth__submit">
+        {/* <button type="submit" className="auth__submit"> */}
+        <button type="submit" className={`${name === 'register' ? 'auth__submit' : 'auth__submit_sign-in'}`}>
           {textButton}
         </button>
       </form>
