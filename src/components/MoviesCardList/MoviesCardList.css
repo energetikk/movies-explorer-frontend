@@ -1,14 +1,11 @@
 .places__photo-cards {
   display: flex;
-  width: 1140px;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 66px 0 48px;
-
+  padding: 66px 70px 48px;
 }
 
 .places {
-  width: 1280px;
   background-color: #202020;
 }
 

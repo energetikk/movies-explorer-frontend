@@ -4,7 +4,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import './Movies.css';
 
 const Movies = ({initialMovies}) => {
-  // console.log(movies);
   return (
     <div>
       <SearchForm />
