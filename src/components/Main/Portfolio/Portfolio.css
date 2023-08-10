@@ -1,14 +1,13 @@
 .portfolio__container {
   background-color: #202020;
   display: flex;
-  margin: 101px auto 0;
-  padding-bottom: 45px;
-  max-width: 1140px;
+  padding: 101px 70px 35px;
+  max-width: 100%;
   flex-direction: column;
 }
 
 .portfolio__tiitle {
-  margin: 0 0 50px;
+  margin: 0 0 60px;
   color: #8B8B8B;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
@@ -57,8 +56,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 69px;
+  height: 50px;
   border-bottom: 1px #424242 solid;
+  padding-bottom: 19px;
   background-repeat: no-repeat;
   display: flex;
 }

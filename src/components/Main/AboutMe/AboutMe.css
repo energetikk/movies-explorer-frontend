@@ -2,7 +2,9 @@
   background-color: #202020;
   display: flex;
   margin: 0 auto;
-  max-width: 1140px;
+  /* max-width: 1140px; */
+  padding-left: 70px;
+  padding-right: 70px;
   min-height: 508px;
   flex-direction: column;
 
@@ -17,7 +19,6 @@
 .aboutme__bio {
   display: flex;
   flex-direction: column;
-
 }
 
 .aboutme__title {
@@ -26,11 +27,13 @@
   font-weight: 400;
   font-size: 22px;
   line-height: 27px;
+  /* padding-left: 70px; */
+  /* padding-right: 70px; */
 }
 
 .aboutme__title::after {
   display: block;
-  width: 1140px;
+  max-width: 1140px;
   content: '';
   margin-top: 23px;
   border-bottom: 1px #DADADA solid;

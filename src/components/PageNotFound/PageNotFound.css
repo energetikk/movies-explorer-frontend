@@ -13,7 +13,7 @@
 .not-found_title {
   margin: 0 0 5px;
   padding: 0;
-  width: 400px;
+  max-width: 400px;
   text-align: center;
   font-weight: 400;
   font-size: 140px;
@@ -22,7 +22,7 @@
 }
 
 .not-found_subtitle {
-  width: 400px;
+  max-width: 400px;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -40,4 +40,33 @@
   font-size: 14px;
   line-height: 17px;
   font-family: "Inter", "Arial", sans-serif;
+}
+
+@media screen and (max-width: 480px) {
+  .not-found_title {
+    margin: 0 0 5px;
+    font-size: 110px;
+    line-height: 130px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .not-found_title {
+    margin: 329px 0 10px;
+    font-size: 80px;
+    line-height: 97px;
+  }
+
+  .not-found_subtitle {
+    width: 300px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .button-back {
+    margin-top: 284px;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

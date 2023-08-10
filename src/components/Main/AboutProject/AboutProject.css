@@ -2,7 +2,7 @@
   background-color: #202020;
   display: flex;
   margin: 0 auto;
-  max-width: 1140px;
+  padding: 0 70px;
   min-height: 608px;
   flex-direction: column;
 
@@ -19,7 +19,7 @@
 
 .about-project__title::after {
   display: block;
-  width: 1140px;
+  max-width: 1140px;
   content: '';
   margin-top: 23px;
   border-bottom: 1px #DADADA solid;
@@ -28,8 +28,9 @@
 .about-project__subtitle {
   margin-top: 70px;
   display: grid;
-  gap: 26px 40px;
+  gap: 26px 23px;
   grid-template-columns: repeat(2, 550px);
+  grid-template-columns: repeat(2, auto);
 }
 
 .about-project__item {
@@ -45,6 +46,7 @@
 .about-project__text {
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -56,6 +58,7 @@
   display: grid;
   row-gap: 14px;
   grid-template-columns: 228px 1fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: 36px 17px;
   text-align: center;
 }
