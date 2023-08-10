@@ -12,10 +12,6 @@
     background-color: #202020;
   }
 
-  .auth-container {
-    /* background-color: #073042; */
-  }
-
   .header__logo {
     padding-left: 70px;
     width: 38px;
@@ -113,7 +109,6 @@
     opacity: 1;
     padding-right: 70px;
     text-decoration: none;
-    /* width: 100px; */
   }
 
   .header__account:hover {
@@ -136,4 +131,14 @@
 
  .header__account_active {
     font-weight: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header__logo {
+      padding-left: 30px;
+    }
+
+    .auth {
+      padding-right: 30px;
+    }
   }
