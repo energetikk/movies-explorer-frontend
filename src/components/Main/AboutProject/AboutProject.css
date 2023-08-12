@@ -107,7 +107,24 @@
     padding: 0 50px;
   }
 
-  /* .promo__logo {
-    top: 224px;
-  } */
+  .about-project__title {
+    margin: 90px 0 0;
+  }
+
+  .about-project__subtitle {
+    gap: 22px 30px;
+  }
+
+  .about-project__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__schema {
+    margin-top: 93px;
+    grid-template-columns: 140px 1fr;
+  }
+
+
 }

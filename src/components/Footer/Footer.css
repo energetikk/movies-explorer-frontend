@@ -70,3 +70,13 @@
   margin-top: 41px;
   padding: 0 70px 0;
 }
+
+@media screen and (max-width: 768px) {
+  .footer__container {
+    padding: 123px 0 20px;
+  }
+
+  .footer__contacts {
+    padding: 0 30px 0;
+  }
+}

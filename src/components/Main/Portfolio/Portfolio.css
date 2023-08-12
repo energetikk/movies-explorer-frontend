@@ -62,3 +62,14 @@
   background-repeat: no-repeat;
   display: flex;
 }
+
+@media screen and (max-width: 768px) {
+  .portfolio__container {
+    padding: 90px 50px 35px;
+  }
+
+  .portfolio__item-name {
+    font-size: 28px;
+    letter-spacing: -1.12px;
+  }
+}
