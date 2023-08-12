@@ -9,7 +9,7 @@ const MoviesCard = ({card, initialMovies}) => {
   return (
     <li className="movie">
       <figure className="movies__element">
-        <img className="movies-card" src={card.link} alt={`Картинка превью фильма: ${card.name}`} />
+        <img className="movies-card-image" src={card.link} alt={`Картинка превью фильма: ${card.name}`} />
         <figcaption className="movies__card">
           <p className="movies__card-name">{card.name}</p>
           { initialMovies.length > 4 ?

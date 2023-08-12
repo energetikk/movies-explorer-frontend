@@ -1,13 +1,12 @@
 import React from "react";
 import "./MoviesCardList.css";
-// import { initialCards } from "../../utils/constants";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 const MoviesCardList = ({ initialMovies }) => {
   return (
     <>
-      <section className="places">
-        <ul className="places__photo-cards">
+      <section className="movies-cards-list">
+        <ul className="movies__preview-list">
           {initialMovies.map((card) => (
             <MoviesCard
               key={card.index}

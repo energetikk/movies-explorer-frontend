@@ -5,7 +5,6 @@
   align-items: center;
   margin: 74px auto;
   position: relative;
-  /* background-color: #424242; */
 }
 
 .profile__title {
@@ -127,4 +126,18 @@
   color: white;
   border: none;
   text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    margin: 236px auto;
+  }
+
+  .profile__title {
+    margin: 0 0 80px 0;
+  }
+
+  .button__edit {
+    margin: 194px 0 15px 0;
+  }
 }

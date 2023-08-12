@@ -1,12 +1,14 @@
-.places__photo-cards {
+.movies__preview-list {
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: center; */
   margin: 0 auto;
-  padding: 66px 70px 48px;
+  padding: 118px 0 48px;
 }
 
-.places {
+.movies-cards-list {
   background-color: #202020;
+  padding: 0 70px;
 }
 
 .movies__more-button {
@@ -23,4 +25,29 @@
   margin: 0 auto;
   padding: 0;
   display: block;
+}
+
+@media screen and (max-width: 1200px) {
+  .movies__preview-list {
+    margin: 83px auto;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-rows: 1fr;
+    gap: 36px 30px;
+    padding: 130px 0 48px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies__preview-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 339px));
+    margin: 0;
+    margin-top: 15px;
+    gap: 39px 30px;
+  }
+
+  .movies-cards-list {
+    padding: 0 30px;
+  }
 }

@@ -113,3 +113,63 @@
     min-height: 545px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .techs__label {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin: 103px auto;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -.72px;
+  }
+
+  .techs__label::after {
+    margin-top: 27px;
+    border-bottom: 1px #000 solid;
+  }
+
+  .techs__container {
+    min-height: 545px;
+  }
+
+  .techs__item {
+    width: 84px;
+    height: 57px;
+  }
+
+  .techs__item:nth-last-child() {
+    /* justify-content: left; */
+  }
+
+
+  .techs__item:nth-child(2n) {
+    margin: 0;
+  }
+
+  .techs__items {
+    /* margin: 71px auto; */
+    /* padding: 71px auto; */
+    /* min-height: 378px; */
+    padding-left: 50px;
+    padding-right: 50px;
+    row-gap: 10px;
+    align-content: flex-start;
+  }
+
+  .techs__title {
+    margin: 40px 0 22px;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .techs__subtitle {
+    max-width: 292px;
+    /* margin-bottom: 83px; */
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -.44px;
+  }
+
+}

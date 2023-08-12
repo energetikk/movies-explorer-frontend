@@ -18,12 +18,19 @@
   margin: 0 0 32px 0;
 }
 
-.movies-card {
+.movies-card-image {
   object-fit: cover;
   width: 270px;
   height: 151px;
   border-radius: 10px 10px 0 0;
+}
 
+.movies__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 0 auto; */
+  margin: 10px 12px 10px 12px;
 }
 
 .movies__card-name {
@@ -74,13 +81,7 @@
   color: #8B8B8B;
 }
 
-.movies__card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  margin: 14px 12px 10px 12px;
-}
+
 
 .movies__button-delete {
   background-color: transparent;
@@ -91,4 +92,38 @@
   background-size: cover;
   background-position: center;
   padding: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .movie {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .movie:nth-child(2n) {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movies__element {
+    width: 339px;
+  }
+
+  .movie {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 339px;
+  }
+
+  .movie:nth-child(2n) {
+    margin: 0 0 36px 0;
+  }
 }

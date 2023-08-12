@@ -72,4 +72,30 @@
     font-size: 28px;
     letter-spacing: -1.12px;
   }
+
+  .portfolio__item-name {
+    font-size: 25px;
+    line-height: 42px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .portfolio__container {
+    padding: 70px 14px 0;
+  }
+
+  .portfolio__item-name {
+    margin: 0;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -.72px;
+  }
+
+  .portfolio__tiitle {
+    margin: 0 0 40px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

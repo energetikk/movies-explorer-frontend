@@ -16,7 +16,6 @@
   line-height: 16px;
   text-decoration: underline;
   transition: opacity .2s ease-in-out;
-
 }
 
 .navtab__link:last-of-type {
@@ -26,4 +25,12 @@
 .navtab__link:hover {
   opacity: .7;
   cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  .navtab__link {
+    font-size: 11px;
+    margin-right: 24px;
+  }
+
 }
