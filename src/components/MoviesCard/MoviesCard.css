@@ -9,9 +9,11 @@
 
 .movies__element {
   border-radius: 10px;
-  width: 270px;
+  /* width: 270px; */
+  width: 100%;
+
   background-color: #222222;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .movie:nth-child(4n) {
@@ -29,8 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin: 0 auto; */
-  margin: 10px 12px 10px 12px;
+  margin: 10px 12px;
 }
 
 .movies__card-name {
@@ -104,6 +105,10 @@
   .movie:nth-child(2n) {
     margin: 0;
   }
+
+  .movie:nth-child(4n) {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -116,6 +121,11 @@
     width: 339px;
   }
 
+  .movies-card-image {
+    width: 339px;
+    height: 190px;
+  }
+
   .movie {
     list-style: none;
     padding: 0;
@@ -125,5 +135,28 @@
 
   .movie:nth-child(2n) {
     margin: 0 0 36px 0;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .movies__element {
+    width: 300px;
+    justify-content: center;
+  }
+
+  .movie {
+    width: 300px;
+  }
+
+  .movies-card-image {
+    width: 300px;
+    height: 168px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movie:nth-child(2n) {
+    margin: 0;
+    padding: 0;
   }
 }

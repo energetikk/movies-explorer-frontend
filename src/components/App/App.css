@@ -9,5 +9,6 @@
   .app__center {
 
     max-width: 768px;
+    position: relative;
   }
 }

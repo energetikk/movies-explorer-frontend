@@ -5,7 +5,6 @@ const MoviesCard = ({card, initialMovies}) => {
 
   const moviesFavorite = card.favorite ? 'movies__button-like_active' : 'movies__button-like';
 
-  console.log(card);
   return (
     <li className="movie">
       <figure className="movies__element">

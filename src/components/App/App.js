@@ -20,14 +20,33 @@ import Menu from "../Menu/Menu";
 
 function App() {
   //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [initialMovies, setInitialMovies] = useState(initialCards);
   const [currentUser, setCurrentUser] = useState({});
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 550);
+  const [isTablet, setIsTablet] = React.useState(window.innerWidth <= 768);
 
   // Доступ к свойствам объекта location
   const location = useLocation();
   const { pathname } = location;
   const [ErrorPage, setErrorPage] = useState(false)
+  // const handleOpenMenu = handleToggleMenu;
+  const [closeMenu, setCloseMenu] = useState(false);
+
+  const handleToggleMenu = () => {
+    setCloseMenu(!closeMenu);
+  }
+
+  const handleSizeWindow = () => {
+    setIsMobile(window.innerWidth <= 550);
+    setIsTablet(window.innerWidth <= 768);
+  };
+
+  React.useEffect(() => {
+    const resizeWindow = window.addEventListener('resize', handleSizeWindow);
+    return resizeWindow;
+  }, []);
+
 
   return (
     <div className="app__center">
@@ -36,7 +55,7 @@ function App() {
         {/* {(pathname !== '/sign-in' || pathname !== '/sign-up' || pathname !== '*') && <Header loggedIn={loggedIn} />} */}
         {/* { pathname !== '/sign-in' && <Header loggedIn={loggedIn} />} */}
         {/* {(pathname !== '/sign-in' && pathname !== '/sign-up' && pathname !== '*') && <Header loggedIn={loggedIn} />} */}
-        {(pathname !== '/sign-in' && pathname !== '/sign-up' && !ErrorPage) && <Header loggedIn={loggedIn} />}
+        {(pathname !== '/sign-in' && pathname !== '/sign-up' && !ErrorPage) && <Header loggedIn={loggedIn} handleToggleMenu={handleToggleMenu}/>}
         {/* { pathname !== '/sign-in' && <Header loggedIn={loggedIn} />} */}
         {/* <Header loggedIn={loggedIn} /> */}
         <Routes>
@@ -48,7 +67,7 @@ function App() {
           />
           <Route
             path="/saved-movies"
-            element={<SavedMovies initialMovies={moviesFavorite} />}
+            element={<SavedMovies initialMovies={moviesFavorite} isTablet={isTablet}/>}
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<Login />} />
@@ -56,7 +75,7 @@ function App() {
           <Route path="*" element={<PageNotFound setErrorPage={setErrorPage} />} />
         </Routes>
         {(pathname === '/' || pathname === '/movies' || pathname === '/saved-movies') && <Footer />}
-        <Menu />
+        <Menu handler={closeMenu} handleToggleMenu={handleToggleMenu}/>
       </CurrentUserContext.Provider>
 
     </div>

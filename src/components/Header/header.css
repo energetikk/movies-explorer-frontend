@@ -133,7 +133,52 @@
     font-weight: 500;
   }
 
+  .burger {
+    display: none;
+  }
+
   @media screen and (max-width: 768px) {
+    .header__nav-hidden {
+      display: none;
+    }
+
+    .burger {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      display: flex;
+      position: relative;
+      width: 28px;
+      height: 26px;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 25;
+      cursor: pointer;
+      margin: 0px 38px 0 0;
+    }
+
+    .burger__icon {
+      height: 3px;
+      width: 28px;
+      background-color: white;
+    }
+
+    .burger::after, .burger::before {
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 100%;
+      background-color: white;
+    }
+
+    .burger::before {
+      top: 0;
+    }
+
+    .burger::after {
+      bottom: 0;
+    }
+
     .header__logo {
       padding-left: 30px;
     }
@@ -163,4 +208,16 @@
       line-height: 16px;
       margin-right: 14px;
     }
+
+    .burger {
+      width: 22px;
+      height: 22px;
+      margin: 0px 23px 0 0;
+    }
+
+
+
+    .burger::after, .burger::before {
+      height: 3px;
   }
+}

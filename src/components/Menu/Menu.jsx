@@ -2,13 +2,19 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
-const Menu = (props) => {
+const Menu = ({ handler, handleToggleMenu }) => {
+  const closeMenu = () => {
+    handleToggleMenu(false);
+  }
+
+
   return (
-    <main className="menu">
+    <section className={`menu ${handler ? 'menu_active' : ''}`}>
+      <div className={`menu__overlay ${handler ? 'menu__overlay_active' : ''}`}></div>
       <section className="menu__container">
-        <button className="menu__button-close" type="button"></button>
+        <button className="menu__button-close" type="button" onClick={closeMenu}></button>
         <nav className="menu__nav">
-          <NavLink
+          <NavLink onClick={closeMenu}
             to="/"
             className={({ isActive }) =>
               `menu__link ${isActive ? "menu__link_active" : ""}`
@@ -16,7 +22,7 @@ const Menu = (props) => {
           >
             Главная
           </NavLink>
-          <NavLink
+          <NavLink onClick={closeMenu}
             to="/movies"
             className={({ isActive }) =>
               `menu__link ${
@@ -26,7 +32,7 @@ const Menu = (props) => {
           >
             Фильмы
           </NavLink>
-          <NavLink
+          <NavLink onClick={closeMenu}
             to="/saved-movies"
             className={({ isActive }) =>
               `menu__link ${
@@ -36,7 +42,7 @@ const Menu = (props) => {
           >
             Сохраненые фильмы
           </NavLink>
-          <NavLink
+          <NavLink onClick={closeMenu}
             to="/profile"
             className={({ isActive }) =>
               `menu__account ${
@@ -49,7 +55,7 @@ const Menu = (props) => {
           </NavLink>
         </nav>
       </section>
-    </main>
+    </section>
   );
 };
 

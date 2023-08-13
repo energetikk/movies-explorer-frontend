@@ -4,14 +4,13 @@ import logo from "../../images/logo_header.png";
 import { Link, NavLink } from "react-router-dom";
 
 
-
-
-function Header({ loggedIn }) {
+function Header({ loggedIn, handleToggleMenu }) {
 
 
   const backgroundHeader = loggedIn ? 'header__background_dark' : '';
   // const location = useLocation();
   const isActive = true;
+
   return (
     <div className="auth-container">
       <header className={`header ${backgroundHeader}`}>
@@ -24,12 +23,15 @@ function Header({ loggedIn }) {
         </Link>
         {loggedIn ? (
           <nav className="header__movies">
-            <NavLink to="/movies" className={({isActive}) => `header__films ${isActive ? "header__films_active" : ""}`}>Фильмы</NavLink>
-            <NavLink to="/saved-movies" className={({isActive}) => `header__savied-films ${isActive ? "header__savied-films_active" : ""}`}>Сохраненые фильмы</NavLink>
-            <NavLink to="/profile" className={({isActive}) => `header__account ${isActive ? "header__account_active" : ""}`}>
+            <NavLink to="/movies" className={({isActive}) => `header__films header__nav-hidden ${isActive ? "header__films_active" : ""}`}>Фильмы</NavLink>
+            <NavLink to="/saved-movies" className={({isActive}) => `header__savied-films header__nav-hidden ${isActive ? "header__savied-films_active" : ""}`}>Сохраненые фильмы</NavLink>
+            <NavLink to="/profile" className={({isActive}) => `header__account header__nav-hidden ${isActive ? "header__account_active" : ""}`}>
               <p className="header__button-account">Аккаунт</p>
               <div className="header__account-icon"></div>
             </NavLink>
+            <button className="burger" type="button" onClick={handleToggleMenu}>
+              <span className="burger__icon"></span>
+            </button>
           </nav>
         ) : (
           <div className="auth">

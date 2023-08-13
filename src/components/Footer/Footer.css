@@ -73,7 +73,7 @@
 
 @media screen and (max-width: 768px) {
   .footer__container {
-    padding: 123px 0 20px;
+    padding: 0 0 20px;
   }
 
   .footer__contacts {
@@ -85,7 +85,7 @@
 @media screen and (max-width: 320px) {
   .footer__container {
     align-items: center;
-    padding: 85px 10px 20px;
+    padding: 0 10px 20px;
   }
 
   .footer__title {

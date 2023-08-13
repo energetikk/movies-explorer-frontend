@@ -1,12 +1,35 @@
 .menu {
-  display: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #202020;
   width: 100vw;
   height: 100vh;
+  transform: translate(100%);
+}
+
+.menu_active {
+  transform: translate(32.3%);
+}
+
+.menu__overlay {
+  width: 0;
+  position: absolute;
+  background-color: #000;
+  opacity: .3;
+}
+
+.menu__overlay_active {
+  width: 100vw;
+  height: 100vh;
+  right: 100%;
 }
 
 .menu__container {
-  margin: 0 auto;
   position: relative;
+  width: 67.7%;
+  height: 100%;
 }
 
 .menu__button-close {
@@ -18,9 +41,9 @@
   border: none;
   background-position: center;
   position: absolute;
-  top: 20px;
-  right: 20px;
-
+  top: 25px;
+  right: 26px;
+  cursor: pointer;
 }
 
 .menu__nav {
@@ -42,11 +65,15 @@
 }
 
 .menu__link:first-child {
-  margin: 144px 0 0 0;
+  margin: 159px 0 0 0;
 }
 
 .menu__link:nth-child(2n) {
-  margin: 24px 0;
+  margin: 26px 0 29px 0;
+}
+
+.menu__link:nth-child(3n) {
+  letter-spacing: 1.03px;
 }
 
 .menu__link_active {
@@ -57,8 +84,8 @@
   position: absolute;
   content: '';
   width: 100%;
-  padding-bottom: 7px;
-  border-bottom: 2px red solid;
+  padding-bottom: 5px;
+  border-bottom: 2px white solid;
   display: flex;
   flex-direction: column;
 }
@@ -74,7 +101,6 @@
 .menu__account {
   margin-top: 444px;
 }
-
 
 .menu__button-account {
   color: white;
@@ -99,11 +125,26 @@
   display: flex;
   align-items: center;
   opacity: 1;
-  /* padding-right: 70px; */
   text-decoration: none;
 }
 
 .menu__account:hover {
   opacity: .5;
   transition: 1s linear .2s ease-in-out;
+}
+
+@media screen and (max-width: 450px) {
+  .menu_active {
+    transform: translate(0%);
+    /* width: 100vw; */
+    /* height: 100vh; */
+  }
+
+  .menu__container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
 }

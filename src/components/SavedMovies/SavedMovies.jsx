@@ -4,11 +4,11 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from "../SearchForm/SearchForm";
 
 
-const SavedMovies = ({initialMovies}) => {
+const SavedMovies = ({initialMovies, isTablet}) => {
   return (
     <div className="saved-movies__container">
       <SearchForm />
-      <MoviesCardList initialMovies={initialMovies}/>
+      <MoviesCardList initialMovies={initialMovies} isTablet={isTablet}/>
     </div>
   )
 };
