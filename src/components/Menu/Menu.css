@@ -1,0 +1,109 @@
+.menu {
+  display: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu__container {
+  margin: 0 auto;
+  position: relative;
+}
+
+.menu__button-close {
+  background-image: url('../../images/close_icon_menu.svg');
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+}
+
+.menu__nav {
+  display: flex;
+  width: 300px;
+  min-height: 594px;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: white;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.menu__link:first-child {
+  margin: 144px 0 0 0;
+}
+
+.menu__link:nth-child(2n) {
+  margin: 24px 0;
+}
+
+.menu__link_active {
+  position: relative;
+}
+
+.menu__link_active::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  padding-bottom: 7px;
+  border-bottom: 2px red solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__main {
+  margin-top: 144px;
+}
+
+.menu__films {
+  margin: 24px 0;
+}
+
+.menu__account {
+  margin-top: 444px;
+}
+
+
+.menu__button-account {
+  color: white;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 12px;
+  margin: 0 10px 0 0;
+}
+
+.menu__account-icon {
+  width: 26px;
+  height: 26px;
+  background-color: #313131;
+  border-radius: 50%;
+  background-image: url(../../images/icon_user.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu__account {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  /* padding-right: 70px; */
+  text-decoration: none;
+}
+
+.menu__account:hover {
+  opacity: .5;
+  transition: 1s linear .2s ease-in-out;
+}

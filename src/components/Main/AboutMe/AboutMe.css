@@ -139,13 +139,41 @@
 }
 
 @media screen and (max-width: 320px) {
-  .aboutme__photo {
-    width: 292px;
-    height: 352px;
-  }
-
   .aboutme {
     padding: 0 14px;
   }
 
+  .aboutme__title {
+    margin-top: 60px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .aboutme__title::after {
+    margin-top: 27px;
+  }
+
+  .aboutme__name {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .aboutme__job {
+    margin: 20px 0 20px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutme__info {
+    margin: 0 0 40px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutme__photo {
+    width: 292px;
+    height: 352px;
+  }
 }

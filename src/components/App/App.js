@@ -15,6 +15,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import { initialCards, moviesFavorite } from "../../utils/constants";
 import Movies from "../Movies/Movies";
 import { useLocation } from "react-router-dom";
+import Menu from "../Menu/Menu";
 
 
 function App() {
@@ -55,7 +56,7 @@ function App() {
           <Route path="*" element={<PageNotFound setErrorPage={setErrorPage} />} />
         </Routes>
         {(pathname === '/' || pathname === '/movies' || pathname === '/saved-movies') && <Footer />}
-
+        <Menu />
       </CurrentUserContext.Provider>
 
     </div>
