@@ -11,10 +11,10 @@ const Footer = () => {
       <div className="footer__contacts">
         <p className="footer__copyright">&copy;&nbsp;2023</p>
         <div className="footer__links">
-          <a href="https://practicum.yandex.ru/" className="footer__link">
+          <a href="https://practicum.yandex.ru/" target="_blank" className="footer__link">
             Яндекс.Практикум
           </a>
-          <a href="https://github.com/energetikk/" className="footer__link">
+          <a href="https://github.com/energetikk/" target="_blank" className="footer__link">
             GitHub
           </a>
         </div>

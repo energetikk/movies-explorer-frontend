@@ -40,7 +40,7 @@ function AuthForm({
         onSubmit={handleSubmit}
         noValidate
       >
-        <div className="logo-auth"></div>
+        <Link to='/' className="logo-auth"></Link>
         <h2 className="form__title-auth">{title}</h2>
         {name === "register" && (
           <div className="input-block">
@@ -96,7 +96,7 @@ function AuthForm({
         <span id="input-password-error" className="popup__error">Что-то пошло не так...</span>
         </div>
         {/* <button type="submit" className="auth__submit"> */}
-        <button type="submit" className={`${name === 'register' ? 'auth__submit' : 'auth__submit_sign-in'}`}>
+        <button type="submit" className={`${name === 'register' ? 'auth__submit' : 'auth__submit_signin'}`}>
           {textButton}
         </button>
       </form>
@@ -104,14 +104,14 @@ function AuthForm({
       {name === "register" ? (
         <div className="link-auth">
           <p className="question-auth">Уже зарегистрированы?</p>
-          <Link to="/sign-in" className="button__sign-in">
+          <Link to="/signin" className="button__signin">
             Войти
           </Link>
         </div>
       ) : (
         <div className="link-auth">
           <p className="question-auth">Еще не зарегестрированы?</p>
-          <Link to="/sign-up" className="button__sign-in">
+          <Link to="/signup" className="button__signin">
             Регистрация
           </Link>
         </div>

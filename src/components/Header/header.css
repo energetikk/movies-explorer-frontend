@@ -18,6 +18,12 @@
     height: 38px;
   }
 
+  .header__logo:hover {
+    opacity: .8;
+    transform: scale(103%);
+    transition: all .2s 20ms ease-in-out;
+  }
+
   .auth {
     display: flex;
     justify-content: space-between;
@@ -112,8 +118,18 @@
   }
 
   .header__account:hover {
-    opacity: .5;
-    transition: 1s linear .2s ease-in-out;
+    opacity: .8;
+    transition: opacity .2s 20ms ease-in-out;
+  }
+
+  .header__films:hover {
+    opacity: .8;
+    transition: opacity .2s 20ms ease-in-out;
+  }
+
+  .header__savied-films:hover {
+    opacity: .8;
+    transition: opacity .2s 20ms ease-in-out;
   }
 
   .header__films_active {

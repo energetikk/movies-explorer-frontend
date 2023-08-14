@@ -27,6 +27,12 @@
   padding: 0;
 }
 
+.search-form__input:focus {
+  outline: 1px solid #FF004C;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 5px rgba(235, 61, 61, .4)
+}
+
 .search-form__submit {
   background-image: url(../../images/find_icon.svg);
   width: 34px;
@@ -35,6 +41,12 @@
   background-size: cover;
   background-color: transparent;
   border: none;
+}
+
+.search-form__submit:hover {
+  outline: 1px solid #FF004C;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(235, 61, 61, .4)
 }
 
 .search-form__line {

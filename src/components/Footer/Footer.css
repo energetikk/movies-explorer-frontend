@@ -1,9 +1,10 @@
 .footer__container {
   background-color: #202020;
   display: flex;
-  padding: 159px 0 20px;
+  padding: 159px 70px 20px;
   flex-direction: column;
   text-align: center;
+
 }
 
 .footer {
@@ -24,11 +25,13 @@
   position: relative;
   margin: 0;
   padding: 0;
-  align-self: center;
+  /* align-self: center; */
 }
 
 .footer__title::after {
   display: block;
+  height: 1px;
+  width: 100%;
   position: absolute;
   content: '';
   border-bottom: 1px solid #424242;
@@ -68,7 +71,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 41px;
-  padding: 0 70px 0;
+  /* padding: 0 70px 0; */
 }
 
 @media screen and (max-width: 768px) {

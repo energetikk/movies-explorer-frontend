@@ -42,7 +42,7 @@
 }
 
 .portfolio__list-item:not(:last-child) {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #E6E6E6;
 }
 
 .portfolio__link-pic {
@@ -62,8 +62,8 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  /* border-bottom: 1px #424242 solid; */
-  padding-bottom: 20px;
+  padding-bottom: 25px;
+  /* padding: 0; */
   background-repeat: no-repeat;
   display: flex;
 }

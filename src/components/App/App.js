@@ -52,11 +52,11 @@ function App() {
     <div className="app__center">
 
       <CurrentUserContext.Provider value={currentUser}>
-        {/* {(pathname !== '/sign-in' || pathname !== '/sign-up' || pathname !== '*') && <Header loggedIn={loggedIn} />} */}
-        {/* { pathname !== '/sign-in' && <Header loggedIn={loggedIn} />} */}
-        {/* {(pathname !== '/sign-in' && pathname !== '/sign-up' && pathname !== '*') && <Header loggedIn={loggedIn} />} */}
-        {(pathname !== '/sign-in' && pathname !== '/sign-up' && !ErrorPage) && <Header loggedIn={loggedIn} handleToggleMenu={handleToggleMenu}/>}
-        {/* { pathname !== '/sign-in' && <Header loggedIn={loggedIn} />} */}
+        {/* {(pathname !== '/signin' || pathname !== '/signup' || pathname !== '*') && <Header loggedIn={loggedIn} />} */}
+        {/* { pathname !== '/signin' && <Header loggedIn={loggedIn} />} */}
+        {/* {(pathname !== '/signin' && pathname !== '/signup' && pathname !== '*') && <Header loggedIn={loggedIn} />} */}
+        {(pathname !== '/signin' && pathname !== '/signup' && !ErrorPage) && <Header loggedIn={loggedIn} handleToggleMenu={handleToggleMenu}/>}
+        {/* { pathname !== '/signin' && <Header loggedIn={loggedIn} />} */}
         {/* <Header loggedIn={loggedIn} /> */}
         <Routes>
           <Route path="/" element={<Main />} />
@@ -70,8 +70,8 @@ function App() {
             element={<SavedMovies initialMovies={moviesFavorite} isTablet={isTablet}/>}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/sign-in" element={<Login />} />
-          <Route path="/sign-up" element={<Register />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
           <Route path="*" element={<PageNotFound setErrorPage={setErrorPage} />} />
         </Routes>
         {(pathname === '/' || pathname === '/movies' || pathname === '/saved-movies') && <Footer />}

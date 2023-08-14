@@ -9,7 +9,7 @@
 
 .promo__logo {
   position: absolute;
-  align-self: center;
+  top: 80px;
 }
 
 .promo__title {

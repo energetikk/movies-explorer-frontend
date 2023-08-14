@@ -35,10 +35,10 @@ function Header({ loggedIn, handleToggleMenu }) {
           </nav>
         ) : (
           <div className="auth">
-            <Link className="header__button-signup" to="/sign-up">
+            <Link className="header__button-signup" to="/signup">
               Регистрация
             </Link>
-            <Link className="header__button-signin" to="/sign-in">
+            <Link className="header__button-signin" to="/signin">
               Войти
             </Link>
           </div>

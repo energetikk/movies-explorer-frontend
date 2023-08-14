@@ -12,7 +12,7 @@ function PageNotFound({setErrorPage}) {
     <div className="not-found">
       <h1 className="not-found_title">404</h1>
       <h2 className="not-found_subtitle">Страница не найдена</h2>
-      <Link to="/sign-in" className="button-back">Назад</Link>
+      <Link to="/signin" className="button-back">Назад</Link>
     </div>
   )
 };

@@ -15,7 +15,7 @@ const Profile = () => {
   }
 
   function logOut() {
-    navigate('/sign-in');
+    navigate('/signin');
   }
 
   function editProfile() {
