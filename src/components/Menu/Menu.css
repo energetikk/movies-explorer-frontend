@@ -49,7 +49,8 @@
 .menu__nav {
   display: flex;
   width: 300px;
-  min-height: 594px;
+  /* min-height: 594px; */
+  height: 100%;
   margin: 0 auto;
   flex-direction: column;
   align-items: center;

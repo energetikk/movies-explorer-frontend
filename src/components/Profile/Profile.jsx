@@ -38,10 +38,6 @@ const Profile = () => {
       <button type="button" className="button__edit" onClick={editProfile}>Редактировать</button>
       <button type="button" className="button__logout" onClick={logOut}>Выйти из аккаунта</button></>) :
       (<>
-        {/* <form className="profile__info">
-          <label className="profile__parameter">Имя</label>
-          <input className="profile__value" value="Текстовое содержимое">Дима</input>
-        </form> */}
         <form className="profile__info-edit">
           <label className="profile__parameter">Имя</label>
           <input type="text" className="profile__value-edit" defaultValue="Дима" />

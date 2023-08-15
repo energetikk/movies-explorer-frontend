@@ -2,14 +2,13 @@
     background-color: black;
     color: white;
     max-width: 1280px;
+    /* max-height: 100vh; */
+    height: 100vh;
     margin: 0 auto;
   }
 
   @media screen and (max-width: 768px) {
-    .page {
 
-      /* max-width: 768px; */
-    }
   }
 
   @media screen and (max-width: 320px) {

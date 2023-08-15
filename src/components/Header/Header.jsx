@@ -1,13 +1,16 @@
 import React from "react";
-import logo from "../../images/logo_header.png";
-// import {useLocation} from "react-router-dom"
-import { Link, NavLink } from "react-router-dom";
+import logo from "../../images/logo_header.svg";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 
 function Header({ loggedIn, handleToggleMenu }) {
 
 
-  const backgroundHeader = loggedIn ? 'header__background_dark' : '';
+  const location = useLocation();
+  const { pathname } = location;
+
+  const backgroundHeader = loggedIn && pathname !== '/' ? 'header__background_dark' : '';
+
   // const location = useLocation();
   const isActive = true;
 

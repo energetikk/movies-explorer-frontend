@@ -19,6 +19,7 @@ const AboutMe = (props) => {
           </p>
           <a
             href="https://github.com/energetikk"
+            target='_blank'
             className="aboutme__link-github"
           >
             Github

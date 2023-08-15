@@ -1,9 +1,11 @@
 .profile__container {
   width: 410px;
+  padding-bottom: 50px;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 74px auto;
+  margin: 74px auto 0;
   position: relative;
 }
 
@@ -148,7 +150,7 @@
 
 @media screen and (max-width: 768px) {
   .profile__container {
-    margin: 236px auto;
+    /* margin: 236px auto; */
   }
 
   .profile__title {
@@ -160,11 +162,26 @@
   }
 }
 
+@media screen and (max-width: 550px) {
+  .profile__container {
+    width: 300px;
+  }
+
+  .button__save-profile {
+    width: 290px;
+    height: 45px;
+  }
+
+  .button__edit {
+    /* margin-top: 250px; */
+  }
+}
+
 @media screen and (max-width: 320px) {
   .button__save-profile {
     width: 260px;
     height: 45px;
-
+    margin-top: 363px;
   }
 
   .profile__container {
@@ -179,8 +196,5 @@
   .button__edit {
     margin-top: 363px;
   }
-
-  .button__save-profile {
-    margin-top: 363px;
-  }
 }
+

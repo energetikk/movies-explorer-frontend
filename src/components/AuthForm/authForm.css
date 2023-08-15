@@ -1,11 +1,13 @@
 .auth__container {
   width: 396px;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
+  padding: 70px 0;
+
 }
 
 .auth_button {
@@ -167,7 +169,7 @@
 }
 
 .logo-auth {
-  background-image: url(../../images/logo_header.png);
+  background-image: url(../../images/logo_header.svg);
   background-size: cover;
   width: 38px;
   height: 38px;
@@ -180,6 +182,11 @@
 }
 
 .question-auth {
+  color: #8B8B8B;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  font-family: "Inter", "Arial", sans-serif;
   margin: 0 6px 0 0;
   padding: 0;
 }
@@ -210,9 +217,22 @@
   font-family: "Inter", "Arial", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  .auth__container {
+    padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .auth__container {
+    padding: 56px 0 30px;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .auth__container {
     width: 260px;
+    padding: 56px 0 30px;
   }
 
   .form__item-auth {
@@ -241,10 +261,10 @@
   }
 
   .question-auth {
+    font-family: "Inter", "Arial", sans-serif;
     font-size: 12px;
     line-height: 15px;
     margin-right: 7px;
-    font-family: "Inter", "Arial", sans-serif;
   }
 
   .button__signin {
@@ -258,4 +278,9 @@
     line-height: 15px;
     margin-top: 245px;
   }
+}
+
+@media screen and (max-width: 320px) {
+
+
 }
