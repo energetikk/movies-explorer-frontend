@@ -106,11 +106,12 @@
 
 @media screen and (max-width: 768px) {
   .about-project  {
-    padding: 0 50px;
+    padding: 90px 50px;
+    min-height: auto;
   }
 
   .about-project__title {
-    margin: 90px 0 0;
+    margin: 0;
   }
 
   .about-project__subtitle {
@@ -131,7 +132,7 @@
 
 @media screen and (max-width: 600px) {
   .about-project  {
-    padding: 0 18px;
+    padding: 0 18px 33px;
   }
 
   .about-project__title {
@@ -198,3 +199,9 @@
     line-height: 13px;
   }
 }
+
+/* @media screen and (max-width: 390px) {
+  .about-project  {
+    padding: 0 18px;
+  }
+} */

@@ -55,6 +55,12 @@
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.movies__button-like:hover, .movies__button-like_active:hover {
+  opacity: .8;
+  transition: opacity .2s 20ms ease-in-out;
 }
 
 .movies__button-like_active {
@@ -67,6 +73,7 @@
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .movie__duration {
@@ -79,8 +86,6 @@
   line-height: 13px;
   color: #8B8B8B;
 }
-
-
 
 .movies__button-delete {
   background-color: transparent;

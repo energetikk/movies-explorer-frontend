@@ -57,7 +57,7 @@
 
 .aboutme__info {
   max-width: 600px;
-  margin: 0 0 99px;
+  margin: 0 20px 99px 0;
   padding: 0;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
@@ -73,6 +73,12 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
+  cursor: pointer;
+}
+
+.aboutme__link-github:hover {
+  opacity: .8;
+  transition: opacity .2s 20ms ease-in-out;
 }
 
 .aboutme__photo {
@@ -111,7 +117,7 @@
 
   .aboutme__info {
     max-width: 364px;
-    margin: 0 0 86px;
+    margin: 0 20px 86px 0;
     font-size: 12px;
     line-height: 18px;
   }
@@ -119,22 +125,47 @@
 
 @media screen and (max-width: 768px) {
   .aboutme {
-    padding: 0 30px;
+    /* padding: 0 30px; */
   }
 
   .aboutme__photo {
-    width: 220px;
-    height: 265px;
+    width: 255px;
+    height: 307px;
+  }
+
+  /* .aboutme__container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 60px;
+  } */
+
+  .aboutme__bio {
+    /* margin-top: 40px; */
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .aboutme__photo {
+    width: 190px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .aboutme {
+    padding: 0 20px;
+  }
+
+  .aboutme__photo {
+    width: 292px;
+    height: 352px;
+    margin-bottom: 40px;
   }
 
   .aboutme__container {
     display: flex;
     flex-direction: column-reverse;
     margin-top: 60px;
-  }
-
-  .aboutme__bio {
-    margin-top: 40px;
   }
 }
 
@@ -144,7 +175,7 @@
   }
 
   .aboutme__title {
-    margin-top: 60px;
+    margin-top: 50px;
     font-size: 18px;
     line-height: 22px;
   }
@@ -170,10 +201,5 @@
     margin: 0 0 40px;
     font-size: 11px;
     line-height: 16px;
-  }
-
-  .aboutme__photo {
-    width: 292px;
-    height: 352px;
   }
 }

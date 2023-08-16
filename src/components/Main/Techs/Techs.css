@@ -85,7 +85,7 @@
     padding-left: 50px;
     padding-right: 50px;
     /* margin: 68px auto; */
-    margin: 68px auto;
+    margin: 90px auto 0;
   }
 
   .techs__title {
@@ -107,6 +107,10 @@
     font-size: 12px;
     line-height: 15px;
     letter-spacing: -0.48px;
+  }
+
+  .techs__items {
+    margin-bottom: 90px;
   }
 
   .techs__container {

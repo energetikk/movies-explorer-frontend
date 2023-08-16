@@ -242,6 +242,7 @@
   }
 
   .auth__submit {
+    margin-top: 155px;
     width: 260px;
     font-size: 12px;
     line-height: 15px;
@@ -254,10 +255,6 @@
   .form__title-auth {
     align-self: center;
     margin: 50px 0 75px;
-  }
-
-  .auth__submit {
-    margin-top: 157px;
   }
 
   .question-auth {

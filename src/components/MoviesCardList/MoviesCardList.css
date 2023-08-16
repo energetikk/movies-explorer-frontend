@@ -1,12 +1,10 @@
 .movies__preview-list {
-  /* display: flex; */
   display: grid;
   gap: 0 20px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   flex-wrap: wrap;
   margin: 0 auto;
-  /* padding: 118px 0 48px; */
-  padding: 118px 0 58px;
+  padding: 118px 0 48px;
 }
 
 .movies-cards-list {
