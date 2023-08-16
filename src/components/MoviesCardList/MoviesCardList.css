@@ -5,6 +5,8 @@
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 118px 0 48px;
+  justify-items: center;
+  align-items: center;
 }
 
 .movies-cards-list {

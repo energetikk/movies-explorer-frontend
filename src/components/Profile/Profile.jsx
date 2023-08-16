@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Profile = () => {
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(true);
   //Для отображения страницы с непройденной валидацией необходимо ниже вручную поменять стейт переменной validationProfile
   const [validationProfile, setValidationProfile] = useState(false);
   const navigate = useNavigate();
