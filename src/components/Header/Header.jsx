@@ -15,8 +15,8 @@ function Header({ loggedIn, handleToggleMenu }) {
   const isActive = true;
 
   return (
-    <div className="auth-container">
-      <header className={`header ${backgroundHeader}`}>
+    <header className="auth-container">
+      <div className={`header ${backgroundHeader}`}>
         <Link to="/">
           <img
             src={logo}
@@ -46,8 +46,8 @@ function Header({ loggedIn, handleToggleMenu }) {
             </Link>
           </div>
         )}
-      </header>
-    </div>
+      </div>
+    </header>
   );
 }
 

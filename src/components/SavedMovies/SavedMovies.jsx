@@ -6,10 +6,10 @@ import SearchForm from "../SearchForm/SearchForm";
 
 const SavedMovies = ({initialMovies, isTablet}) => {
   return (
-    <div className="saved-movies__container">
+    <main className="saved-movies__container">
       <SearchForm />
       <MoviesCardList initialMovies={initialMovies} isTablet={isTablet}/>
-    </div>
+    </main>
   )
 };
 

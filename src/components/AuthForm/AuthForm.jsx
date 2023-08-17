@@ -33,7 +33,7 @@ function AuthForm({
   };
 
   return (
-    <div className="auth__container">
+    <header className="auth__container">
       <form
         name={`${name}-form`}
         className="form__auth"
@@ -116,7 +116,7 @@ function AuthForm({
           </Link>
         </div>
       )}
-    </div>
+    </header>
   );
 }
 

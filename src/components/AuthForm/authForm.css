@@ -92,6 +92,12 @@
   padding: 15px;
 }
 
+.form__item-auth:focus {
+  outline: 1px solid #FF004C;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 5px rgba(235, 61, 61, .4)
+}
+
 .button__signin {
   color: #4285F4;
   font-family: "Inter", "Arial", sans-serif;

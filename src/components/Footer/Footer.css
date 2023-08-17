@@ -26,7 +26,6 @@
   margin: 0;
   padding: 0;
   max-width: 100%;
-  /* align-self: center; */
 }
 
 .footer__title::after {
@@ -65,6 +64,11 @@
 
 .footer__link:last-of-type {
   margin: 0;
+}
+
+.footer__link:hover {
+  opacity: .8;
+  transition: opacity .2s 20ms ease-in-out;
 }
 
 .footer__contacts {

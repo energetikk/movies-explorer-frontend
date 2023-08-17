@@ -5,10 +5,10 @@ import './Movies.css';
 
 const Movies = ({initialMovies}) => {
   return (
-    <div>
+    <main>
       <SearchForm />
       <MoviesCardList initialMovies={initialMovies}/>
-    </div>
+    </main>
   )
 };
 

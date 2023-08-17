@@ -124,23 +124,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .aboutme {
-    /* padding: 0 30px; */
-  }
-
   .aboutme__photo {
     width: 255px;
     height: 307px;
-  }
-
-  /* .aboutme__container {
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: 60px;
-  } */
-
-  .aboutme__bio {
-    /* margin-top: 40px; */
   }
 }
 
@@ -160,6 +146,7 @@
     width: 292px;
     height: 352px;
     margin-bottom: 40px;
+    align-self: center;
   }
 
   .aboutme__container {
