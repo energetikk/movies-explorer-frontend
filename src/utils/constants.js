@@ -12,42 +12,42 @@ const validationConfig = {
 const initialCards = [
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/1.png',
+    link: 'https://deminpavel.ru/images/Preview/1.png',
     favorite: false,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/2.png',
+    link: 'var/www/pomidora_ru_usr/data/www/pomidora.ru/images/Preview/1.png',
     favorite: true,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/3.png',
+    link: 'www/pomidora_ru_usr/data/www/pomidora.ru/images/Preview/1.png',
     favorite: false,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/4.png',
+    link: 'pomidora_ru_usr/data/www/pomidora.ru/images/Preview/1.png',
     favorite: false,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/5.png',
+    link: 'www/pomidora.ru/images/Preview/1.png',
     favorite: true,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/6.png',
+    link: 'pomidora.ru/images/Preview/1.png',
     favorite: false,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/7.png',
+    link: '../pomidora.ru/images/Preview/1.png',
     favorite: false,
   },
   {
     name: '33 слова о дизайне',
-    link: '/images/preview/8.png',
+    link: '/pomidora.ru/images/Preview/1.png',
     favorite: true,
   },
   {

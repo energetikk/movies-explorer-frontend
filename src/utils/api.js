@@ -93,8 +93,6 @@ _checkResponse(res) {
   return Promise.reject(`Произошла ошибка: ${res.status}`); // если ошибка, отклоняем промис
 }
 
-
-
 changeLikeCardStatus(cardId, isLiked) {
   if (isLiked) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-62/cards/${cardId}/likes`, {
