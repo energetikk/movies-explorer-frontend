@@ -108,8 +108,6 @@ changeLikeCardStatus(cardId, isLiked) {
   .then(this._checkResponse)
   }
 }
-
-
 }
 
 const api = new Api({url: 'https://mesto.nomoreparties.co/v1/cohort-62/cards',
@@ -118,6 +116,5 @@ headers: {
  "Content-Type": "application/json"
  }
 })
-
 
 export default api;

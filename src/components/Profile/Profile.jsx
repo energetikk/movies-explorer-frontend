@@ -4,7 +4,7 @@ import "./profile.css";
 import { useNavigate } from "react-router-dom";
 
 
-const Profile = () => {
+const Profile = ({singOut}) => {
   const [editMode, setEditMode] = useState(true);
   //Для отображения страницы с непройденной валидацией необходимо ниже вручную поменять стейт переменной validationProfile
   const [validationProfile, setValidationProfile] = useState(false);
@@ -12,10 +12,6 @@ const Profile = () => {
 
   function saveProfile() {
     setEditMode(true);
-  }
-
-  function logOut() {
-    navigate('/signin');
   }
 
   function editProfile() {
@@ -36,7 +32,7 @@ const Profile = () => {
         <p className="profile__value">email@yandex.ru</p>
       </div>
       <button type="button" className="button__edit" onClick={editProfile}>Редактировать</button>
-      <button type="button" className="button__logout" onClick={logOut}>Выйти из аккаунта</button></>) :
+      <button type="button" className="button__logout" onClick={singOut}>Выйти из аккаунта</button></>) :
       (<>
         <form className="profile__info-edit">
           <label className="profile__parameter">Имя</label>

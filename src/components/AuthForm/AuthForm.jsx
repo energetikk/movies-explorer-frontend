@@ -15,6 +15,7 @@ function AuthForm({
   const [formValue, setFormValue] = useState({
     password: "",
     email: "",
+    nameuser: "",
   });
 
   const handleChangeInput = (evt) => {
@@ -24,9 +25,9 @@ function AuthForm({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const { password, email, nameuser } = formValue;
+    const { nameuser, password, email } = formValue;
     if (name === "register") {
-      handleCheckRegister(password, email);
+      handleCheckRegister(nameuser, password, email);
     } else {
       handleCheckLogin(password, email);
     }
