@@ -18,6 +18,8 @@ import { useLocation } from "react-router-dom";
 import Menu from "../Menu/Menu";
 import * as Auth from "../../utils/auth";
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import api from "../../utils/api";
+
 
 function App() {
   //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
@@ -26,17 +28,22 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 550);
   const [isTablet, setIsTablet] = React.useState(window.innerWidth <= 768);
-  const [isStatusLoginOk, setIsStatusLoginOk] = useState(false);
   const [isStatusLoginError, setIsStatusLoginError] = useState(false);
+  const [emailUser, setEmailUser] = useState('');
+  const [nameUser, setNameUser] = useState('');
 
 
   const navigate = useNavigate();
 
-  const [emailUser, setEmailUser] = useState('');
 
-  // function handleCheckStatusLoginOk() {
-  //   setIsStatusLoginOk(true);
-  // }
+
+
+
+
+
+
+
+
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
@@ -59,12 +66,12 @@ function App() {
   const handleLogin = (user) => {
     setLoggedIn(true);
     setEmailUser(user.email);
+    setNameUser(user.name);
   }
 
   function handleCheckRegister(name, password, email) {
     Auth.register({name, password, email})
           .then((res) => {
-              // setIsStatusLoginOk(true);
               console.log(res);
               setLoggedIn(true);
               navigate('/', { replace: true })
@@ -126,6 +133,30 @@ function App() {
   }, []);
 
 
+  React.useEffect(() => {
+    api
+      .getUserInfo()
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [loggedIn]);
+
+  function handleUpdateUser(value) {
+    console.log(value);
+    api.setUserInfo(value).then((res) => {
+      console.log(res);
+      setCurrentUser(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+
+
   return (
     <div className="app__center">
 
@@ -137,7 +168,7 @@ function App() {
             initialMovies={initialMovies} />} />
           <Route  path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn}
             initialMovies={moviesFavorite} isTablet={isTablet} />} />
-          <Route path="/profile" element={ <ProtectedRoute element={Profile} loggedIn={loggedIn} singOut={singOut} />} />
+          <Route path="/profile" element={ <ProtectedRoute element={Profile} loggedIn={loggedIn} singOut={singOut} nameUser={nameUser} emailUser={emailUser} onUpdateUser={handleUpdateUser} />} />
 
           <Route path="/signin" element={<Login handleCheckLogin={handleCheckLogin} />} />
           <Route path="/signup" element={<Register handleCheckRegister={handleCheckRegister} />} />
