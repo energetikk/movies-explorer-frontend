@@ -4,30 +4,30 @@ class Api {
   }
 
 //Получить начальные карточки с сервера
-  getInitialCards() {
-    return fetch(`${this._baseUrl}cards`, {
-        method: 'GET',
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        },
-      })
-      .then(this._checkResponse)
-  }
+  // getInitialCards() {
+  //   return fetch(`${this._baseUrl}cards`, {
+  //       method: 'GET',
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  //       },
+  //     })
+  //     .then(this._checkResponse)
+  // }
 //Добавить карточку на сервер
-  addCard(data) {
-    return fetch(`${this._baseUrl}cards`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      },
-      body: JSON.stringify({
-        name: data.name,
-        link: data.link
-      })})
-      .then(this._checkResponse)
-    }
+  // addCard(data) {
+  //   return fetch(`${this._baseUrl}cards`, {
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  //     },
+  //     body: JSON.stringify({
+  //       name: data.name,
+  //       link: data.link
+  //     })})
+  //     .then(this._checkResponse)
+  //   }
 
 //Запросить информацию о пользователе с сервера
   getUserInfo() {
@@ -43,7 +43,8 @@ class Api {
   }
 
 //Записать обновленную информацию о пользователе на сервер
-  setUserInfo(data) {
+  // setUserInfo(data) {
+  setUserInfo({name, email}) {
     return fetch(`${this._baseUrl}users/me/`, {
       method: 'PATCH',
       // headers: this._headers,
@@ -53,26 +54,27 @@ class Api {
      },
       credentials: 'include',
       body: JSON.stringify({
-        name: data.name,
-        about: data.description
+        // name: data.name,
+        // email: data.email
+        name, email
       })})
   .then(this._checkResponse)
 }
 
 //Записать обновленный аватар пользователя на сервер
-  setAvatar(data) {
-    console.log(data)
-    return fetch(`${this._baseUrl}users/me/avatar`, {
-      method: 'PATCH',
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-     },
-      body: JSON.stringify({
-        avatar: data.avatar
-      })})
-  .then(this._checkResponse)
-}
+//   setAvatar(data) {
+//     console.log(data)
+//     return fetch(`${this._baseUrl}users/me/avatar`, {
+//       method: 'PATCH',
+//       headers: {
+//         "Content-Type": "application/json",
+//         authorization: `Bearer ${localStorage.getItem('jwt')}`,
+//      },
+//       body: JSON.stringify({
+//         avatar: data.avatar
+//       })})
+//   .then(this._checkResponse)
+// }
 
 //Запрос на удаление карточки с сервера
 deleteCard(cardId) {

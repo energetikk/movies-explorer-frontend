@@ -30,20 +30,8 @@ function App() {
   const [isTablet, setIsTablet] = React.useState(window.innerWidth <= 768);
   const [isStatusLoginError, setIsStatusLoginError] = useState(false);
   const [emailUser, setEmailUser] = useState('');
-  const [nameUser, setNameUser] = useState('');
-
-
+  const [nameUser, setNameUser] = useState(currentUser.name);
   const navigate = useNavigate();
-
-
-
-
-
-
-
-
-
-
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
@@ -56,7 +44,7 @@ function App() {
       .then(
         (user) => {
           handleLogin(user);
-          navigate('/', {replace: true})
+          navigate('/', {replace: true});
         }
       )
       .catch(err => console.log(err))
@@ -74,7 +62,7 @@ function App() {
           .then((res) => {
               console.log(res);
               setLoggedIn(true);
-              navigate('/', { replace: true })
+              navigate('/movies', { replace: true })
           })
           .catch((err) => {
               handleCheckStatusLoginError(err);
@@ -133,16 +121,38 @@ function App() {
   }, []);
 
 
-  React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((user) => {
-        setCurrentUser(user);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   api
+  //     .getUserInfo()
+  //     .then((user) => {
+  //       setCurrentUser(user);
+  //       console.log(currentUser);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [loggedIn]);
+
+
+  useEffect(() => {
+    if (loggedIn) {
+      getUserDataApi();
+    }
+}, [loggedIn, currentUser]);
+
+ const getUserDataApi = () => {
+  api
+    .getUserInfo()
+    .then((data) => setCurrentUser(data))
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    });
+};
+
+
+
+
+
 
   function handleUpdateUser(value) {
     console.log(value);
@@ -154,8 +164,6 @@ function App() {
       console.log(err);
     });
   }
-
-
 
   return (
     <div className="app__center">
