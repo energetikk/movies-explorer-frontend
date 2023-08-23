@@ -16,9 +16,11 @@ import { initialCards, moviesFavorite } from "../../utils/constants";
 import Movies from "../Movies/Movies";
 import { useLocation } from "react-router-dom";
 import Menu from "../Menu/Menu";
-import * as Auth from "../../utils/auth";
+// import * as Auth from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import api from "../../utils/api";
+// import * as Auth from "../../utils/auth";
+// import api from "../../utils/api";
+import * as MainApi from "../../utils/MainApi";
 
 function App() {
   //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
@@ -35,10 +37,22 @@ function App() {
 
   // Регистрация пользователя........................................................................
 
-  function handleCheckRegister(name, password, email) {
-    Auth.register({ name, password, email })
+
+  useEffect(() => {
+    if (loggedIn) {
+      MainApi.getUserInfo().then((res) =>
+        setCurrentUser({
+          email: res.email,
+          name: res.name,
+        }),
+      );
+    }
+  }, [loggedIn]);
+
+
+  function handleCheckRegister(name, email, password) {
+    MainApi.register({ name, email, password })
       .then((res) => {
-        console.log(res);
         // setLoggedIn(true);
         navigate("/movies", { replace: true });
       })
@@ -48,7 +62,69 @@ function App() {
       });
   }
 
+  function handleCheckStatusLoginError() {
+    setIsStatusLoginError(true);
+  }
 
+
+function handleCheckLogin(password, email) {
+  MainApi.authorize({password, email})
+    .then((res) => {
+      localStorage.setItem('jwt', res.token);
+      setLoggedIn(true);
+      // localStorage.setItem('isLoggedIn', true);
+      navigate("/movies", { replace: true });
+    })
+    .catch((err) => {
+      handleCheckStatusLoginError();
+      console.log(`ошибка ${err}`);
+    });
+}
+
+
+function handleUpdateUser(value) {
+  MainApi.setUserInfo(value)
+  .then((res) => {
+    setCurrentUser(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
+
+  function tokenCheck() {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      MainApi.getContent(jwt)
+        .then(() => {
+          setLoggedIn(true);
+          handleLogin();
+          // navigate(pathname);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const handleLogin = (user) => {
+    setLoggedIn(true);
+    setEmailUser(user.email);
+    setNameUser(user.name);
+  };
+
+
+  useEffect(() => {
+    tokenCheck();
+  }, [currentUser]);
+
+
+
+
+
+
+
+
+
+/*
   // Логин пользователя........................................................................
 
   function handleCheckLogin(password, email) {
@@ -74,9 +150,7 @@ function App() {
     setNameUser(user.name);
   };
 
-  function handleCheckStatusLoginError() {
-    setIsStatusLoginError(true);
-  }
+
 
   // Проверка токена........................................................................
 
@@ -86,8 +160,8 @@ function App() {
       // Auth.getContent()
       Auth.getContent(jwt)
         .then((user) => {
-          setLoggedIn(true);
-          // handleLogin(user);
+          // setLoggedIn(true);
+          handleLogin(user);
           navigate("/", { replace: true });
         })
         .catch((err) => console.log(err));
@@ -102,7 +176,7 @@ function App() {
  // Получение данных пользователя........................................................................
 
  const getUserDataApi = () => {
-  api
+  MainApi
   .getUserInfo()
   .then((data) => setCurrentUser(data))
   .catch((err) => {
@@ -118,11 +192,13 @@ useEffect(() => {
 
 
 
+
+
   // Обновление данных пользователя........................................................................
 
   function handleUpdateUser(value) {
     // console.log(value);
-    api.setUserInfo(value)
+    MainApi.setUserInfo(value)
     .then((res) => {
       // console.log(res);
       setCurrentUser(res);
@@ -132,10 +208,11 @@ useEffect(() => {
     });
   }
 
+*/
 
     // Выход пользователя........................................................................
 
-    function singOut() {
+    function signOut() {
       localStorage.removeItem("jwt");
       setLoggedIn(false);
       navigate("/signin");
@@ -164,17 +241,6 @@ useEffect(() => {
     return resizeWindow;
   }, []);
 
-  // useEffect(() => {
-  //   api
-  //     .getUserInfo()
-  //     .then((user) => {
-  //       setCurrentUser(user);
-  //       console.log(currentUser);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [loggedIn]);
 
 
 
@@ -218,7 +284,7 @@ useEffect(() => {
               <ProtectedRoute
                 element={Profile}
                 loggedIn={loggedIn}
-                singOut={singOut}
+                singOut={signOut}
                 nameUser={nameUser}
                 emailUser={emailUser}
                 onUpdateUser={handleUpdateUser}
