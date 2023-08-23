@@ -3,34 +3,9 @@ class Api {
     this._baseUrl = baseUrl;
   }
 
-//Получить начальные карточки с сервера
-  // getInitialCards() {
-  //   return fetch(`${this._baseUrl}cards`, {
-  //       method: 'GET',
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  //       },
-  //     })
-  //     .then(this._checkResponse)
-  // }
-//Добавить карточку на сервер
-  // addCard(data) {
-  //   return fetch(`${this._baseUrl}cards`, {
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  //     },
-  //     body: JSON.stringify({
-  //       name: data.name,
-  //       link: data.link
-  //     })})
-  //     .then(this._checkResponse)
-  //   }
-
 //Запросить информацию о пользователе с сервера
   getUserInfo() {
+    // const jwt = ;
     return fetch(`${this._baseUrl}users/me`, {
     method: 'GET',
     headers: {
@@ -54,8 +29,6 @@ class Api {
      },
       credentials: 'include',
       body: JSON.stringify({
-        // name: data.name,
-        // email: data.email
         name, email
       })})
   .then(this._checkResponse)
