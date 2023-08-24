@@ -5,7 +5,6 @@ class Api {
 
 //Запросить информацию о пользователе с сервера
   getUserInfo() {
-    // const jwt = ;
     return fetch(`${this._baseUrl}users/me`, {
     method: 'GET',
     headers: {
@@ -22,7 +21,6 @@ class Api {
   setUserInfo({name, email}) {
     return fetch(`${this._baseUrl}users/me/`, {
       method: 'PATCH',
-      // headers: this._headers,
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -34,20 +32,6 @@ class Api {
   .then(this._checkResponse)
 }
 
-//Записать обновленный аватар пользователя на сервер
-//   setAvatar(data) {
-//     console.log(data)
-//     return fetch(`${this._baseUrl}users/me/avatar`, {
-//       method: 'PATCH',
-//       headers: {
-//         "Content-Type": "application/json",
-//         authorization: `Bearer ${localStorage.getItem('jwt')}`,
-//      },
-//       body: JSON.stringify({
-//         avatar: data.avatar
-//       })})
-//   .then(this._checkResponse)
-// }
 
 //Запрос на удаление карточки с сервера
 deleteCard(cardId) {
