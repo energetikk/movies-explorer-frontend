@@ -132,7 +132,14 @@
   font-size: 11px;
   line-height: 13px;
   position: absolute;
-  top: 187px;
+  top: 425px;
+  left: 85px;
+}
+
+.form-button__profile {
+  /* margin: 223px 0 0; */
+  display: flex;
+  flex-direction: column;
 }
 
 .profile__value-edit {
