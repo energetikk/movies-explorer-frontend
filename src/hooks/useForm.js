@@ -1,25 +1,4 @@
 import { useState, useEffect } from "react";
-// import App from "../components/App/App";
-
-// function useForm(inputValues, validations) {
-//   const [formValue, setFormValue] = useState(inputValues);
-//   // Сосотояние вышли или нет из инпута
-//   const [isDirty, setIsDirty] = useState(false);
-//   // const valid = useValidation(formValue, validations)
-//   const handleChangeInput = (evt) => {
-//     const { value, name } = evt.target;
-//     setFormValue({ ...formValue, [name]: value });
-//   };
-
-//   const onBlur = () => {
-//     setIsDirty(true);
-//   };
-
-//   return { formValue, setFormValue, handleChangeInput, onBlur };
-// }
-
-// export default useForm;
-
 
  const useValidation = (formValue, validations) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -27,7 +6,6 @@ import { useState, useEffect } from "react";
   const [maxLengthError, setMaxLengthError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [inputValid, setInputValid] = useState(false);
-
 
   useEffect(() => {
     for (const validation in validations) {
@@ -50,7 +28,6 @@ import { useState, useEffect } from "react";
           regEx.test(String(formValue).toLowerCase()) ? setEmailError(false) : setEmailError(true);
           break;
           default:
-
       }
     }
   }, [formValue]);
@@ -78,8 +55,6 @@ function useInput(inputValues, validations) {
   const [isDirty, setIsDirty] = useState(false);
   const valid = useValidation(formValue, validations);
   const handleChangeInput = (evt) => {
-    // const { value, name } = evt.target;
-    // setFormValue({ ...formValue, [name]: value });
     setFormValue(evt.target.value);
   };
 
@@ -96,6 +71,5 @@ function useInput(inputValues, validations) {
     ...valid,
   };
 }
-
 
 export default useInput;

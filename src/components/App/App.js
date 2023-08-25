@@ -20,10 +20,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 // import * as Auth from "../../utils/auth";
 // import api from "../../utils/api";
 import * as MainApi from "../../utils/MainApi";
-
+// import * as MoviesApi from "../../utils/MoviesApi"
 
 function App() {
-  //Для переключения отображения верстки Heder необходимо вручную поменять стейт переменной статуса loggedIn
   const [loggedIn, setLoggedIn] = useState(false);
   const [initialMovies, setInitialMovies] = useState(initialCards);
   const [currentUser, setCurrentUser] = useState({});
@@ -33,6 +32,8 @@ function App() {
   const [emailUser, setEmailUser] = useState('');
   const [nameUser, setNameUser] = useState('');
   const navigate = useNavigate();
+
+
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
@@ -148,6 +149,59 @@ function App() {
 
 
 
+  // Добавление фильмов в сохраненные и удаление из сохранненых
+  const [saviedMovies, setSaviedMovies] = useState([]);
+
+  useEffect(() => {
+    MainApi.getSavedMovies()
+    .then((data) => {
+      setSaviedMovies(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },[currentUser])
+
+
+  const handleMovieLike = (card) => {
+    // const isLiked = savedMovies.some((item) => item.movieId === movie.movieId);
+    const isLiked = saviedMovies.some(i => i.movieId === card.movieId);
+    console.log(isLiked);
+
+    if (!isLiked) {
+      MainApi
+        .setLikeMovie(card)
+        .then((newCard) => {
+          setSaviedMovies([...saviedMovies, newCard]);
+        })
+        .catch((err) => console.log(err));
+    } else {
+
+      // Найдем айдишник карточки  на которую мы кликнули
+      const id = saviedMovies.find(i => i.movieId === card.movieId)._id;
+      MainApi
+        .deleteMovie(id)
+        .then(() => {
+          setSaviedMovies(saviedMovies.filter(i => i._id !== id));
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+    }
+  };
+
+
+  const handleMovieCardDelete = (card) => {
+    MainApi
+      .deleteMovie(card._id)
+      .then(() => {
+        setSaviedMovies((moviesCards) =>
+        moviesCards.filter(i => i._id !== card._id)
+        );
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="app__center">
 
@@ -156,9 +210,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route  path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn}
-            initialMovies={initialMovies} />} />
-          <Route  path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn}
-            initialMovies={moviesFavorite} isTablet={isTablet} />} />
+            initialMovies={initialMovies} onMovieLike={handleMovieLike} saviedMovies={saviedMovies}/>} />
+          <Route  path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} onMovieDelete={handleMovieCardDelete}
+            initialMovies={moviesFavorite} isTablet={isTablet} saviedMovies={saviedMovies}/>} />
           <Route path="/profile" element={ <ProtectedRoute element={Profile} loggedIn={loggedIn} singOut={singOut} nameUser={nameUser} emailUser={emailUser} onUpdateUser={handleUpdateUser} />} />
 
           <Route path="/signin" element={<Login handleCheckLogin={handleCheckLogin} />} />

@@ -4,11 +4,11 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from "../SearchForm/SearchForm";
 
 
-const SavedMovies = ({initialMovies, isTablet}) => {
+const SavedMovies = ({initialMovies, isTablet, saviedMovies, onMovieDelete}) => {
   return (
     <main className="saved-movies__container">
       <SearchForm />
-      <MoviesCardList initialMovies={initialMovies} isTablet={isTablet}/>
+      <MoviesCardList initialMovies={initialMovies} isTablet={isTablet} saviedMovies={saviedMovies} onMovieDelete={onMovieDelete}/>
     </main>
   )
 };

@@ -71,3 +71,84 @@ export const setUserInfo = ({ name, email }) => {
     }),
   }).then((res) => checkResponse(res));
 };
+
+
+
+
+
+
+
+
+//Отправка запроса на добавление фильма в избранное
+export const setLikeMovie = (data) => {
+  return fetch(`${BASE_URL}movies/`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    },
+    credentials: "include",
+    body: JSON.stringify(data)
+  })
+  .then((res) => checkResponse(res));
+}
+
+//Запрос на удаление карточки с сервера
+export const deleteMovie = (movieId) => {
+  return fetch(`${BASE_URL}movies/${movieId}`, {
+  method: 'DELETE',
+  headers: {
+    "Content-Type": "application/json",
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  },
+  })
+  .then((res) => checkResponse(res));
+}
+
+
+// Отправка запроса на удаление лайка
+// export const deleteMovie = (movieId) => {
+//   return fetch(`${BASE_URL}movies/${movieId}`, {
+//     method: 'DELETE',
+//     headers: {
+//       "Content-Type": "application/json",
+//       authorization: `Bearer ${localStorage.getItem('jwt')}`,
+//     },
+//   })
+//   .then((res) => checkResponse(res));
+// }
+
+export const getSavedMovies = () => {
+  return fetch(`${BASE_URL}movies/`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    },
+  })
+  .then((res) => checkResponse(res));
+}
+
+// export const changeLikeCardStatus = (movieId, isLiked) => {
+//   if (isLiked) {
+//     return fetch(`${BASE_URL}movies/${movieId}/likes`, {
+//     method: 'PUT',
+//     headers: {
+//       "Content-Type": "application/json",
+//       authorization: `Bearer ${localStorage.getItem('jwt')}`,
+//    },
+//     credentials: 'include',
+//   })
+//   .then((res) => checkResponse(res));
+//   } else {
+//     return fetch(`${BASE_URL}movies/${movieId}/likes`, {
+//     method: 'DELETE',
+//     headers: {
+//       "Content-Type": "application/json",
+//       authorization: `Bearer ${localStorage.getItem('jwt')}`,
+//    },
+//     credentials: 'include',
+//   })
+//   .then((res) => checkResponse(res));
+//   }
+// }

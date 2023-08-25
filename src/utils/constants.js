@@ -1,13 +1,3 @@
-
-const validationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__item',
-  submitButtonSelector: '.form__submit',
-  inactiveButtonClass: 'form__submit_disabled',
-  inputErrorClass: 'form__item_type_error',
-  errorClass: 'popup__error_visible'
-};
-
 //Массив данных для загрузки первых карточек на страницу
 const initialCards = [
   {
@@ -111,4 +101,4 @@ const moviesFavorite = [
 ];
 
 
-export {initialCards, validationConfig, moviesFavorite}
+export {initialCards, moviesFavorite}
