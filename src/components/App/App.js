@@ -12,105 +12,125 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import SavedMovies from "../SavedMovies/SavedMovies";
-import { initialCards, moviesFavorite } from "../../utils/constants";
+// import { initialCards, moviesFavorite } from "../../utils/constants";
 import Movies from "../Movies/Movies";
 import { useLocation } from "react-router-dom";
 import Menu from "../Menu/Menu";
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 // import * as Auth from "../../utils/auth";
 // import api from "../../utils/api";
 import * as MainApi from "../../utils/MainApi";
 // import * as MoviesApi from "../../utils/MoviesApi"
+// import useWindowDimensions from "../../hooks/useWindowSize";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [initialMovies, setInitialMovies] = useState(initialCards);
   const [currentUser, setCurrentUser] = useState({});
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 550);
   const [isTablet, setIsTablet] = React.useState(window.innerWidth <= 768);
   const [isStatusLoginError, setIsStatusLoginError] = useState(false);
-  const [emailUser, setEmailUser] = useState('');
-  const [nameUser, setNameUser] = useState('');
+  const [emailUser, setEmailUser] = useState("");
+  const [nameUser, setNameUser] = useState("");
   const navigate = useNavigate();
 
+  ///////////////////////////////////////
+  // const [limit, setLimit] = useState(0)
+  //   const [amount, setAmount] = useState(0)
+  // const { width }  = useWindowDimensions();
+  // console.log(width);
 
+  // const{windowDimensions} = useWindowDimensions();
+
+  // const getLimit = () => {
+  //   if (width <= 700 && width > 400) {
+  //     setLimit(5);
+  //     setAmount(2)
+  //   } else if (width <= 400) {
+  //     setLimit(8);
+  //     setAmount(2)
+  //   } else {
+  //     setLimit(12);
+  //     setAmount(3)
+  //   }
+  // };
+
+  // const addMovies = () => setLimit(limit + amount);
+
+  // useEffect(getLimit, [width]);
+
+  //////////////////////////////////////
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
   }
 
   const tokenCheck = () => {
-    const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem("jwt");
     if (jwt) {
       MainApi.getContent(jwt)
-      .then(
-        (user) => {
+        .then((user) => {
           handleLogin(user);
-          navigate('/', {replace: true})
-        }
-      )
-      .catch(err => console.log(err))
+          navigate("/", { replace: true });
+        })
+        .catch((err) => console.log(err));
     }
-  }
+  };
 
   const handleLogin = (user) => {
     setLoggedIn(true);
     setEmailUser(user.email);
     setNameUser(user.name);
-  }
+  };
 
   function handleCheckRegister(name, password, email) {
-    MainApi.register({name, password, email})
-          .then((res) => {
-              console.log(res);
-              setLoggedIn(true);
-              navigate('/', { replace: true })
-          })
-          .catch((err) => {
-              handleCheckStatusLoginError(err);
-              console.log(`ошибка ${err}`);
-              }
-          )
+    MainApi.register({ name, password, email })
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(true);
+        navigate("/movies", { replace: true });
+      })
+      .catch((err) => {
+        handleCheckStatusLoginError(err);
+        console.log(`ошибка ${err}`);
+      });
   }
 
   function handleCheckLogin(password, email) {
     MainApi.authorize({ password, email })
-          .then((res) => {
-            console.log(res.token);
-              if (res.token) {
-                  localStorage.setItem('jwt', res.token);
-                  handleLogin(email);
-                  navigate('/', { replace: true });
-              }
-          })
-          .catch((err) => {
-                      handleCheckStatusLoginError();
-                      console.log(`ошибка ${err}`)
-                  }
-              )
+      .then((res) => {
+        console.log(res.token);
+        if (res.token) {
+          localStorage.setItem("jwt", res.token);
+          handleLogin(email);
+          navigate("/movies", { replace: true });
+        }
+      })
+      .catch((err) => {
+        handleCheckStatusLoginError();
+        console.log(`ошибка ${err}`);
+      });
   }
 
   function singOut() {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem("jwt");
     setLoggedIn(false);
-    navigate('/signin');
+    navigate("/signin");
   }
 
   useEffect(() => {
     tokenCheck();
-  }, [loggedIn])
-
+  }, [loggedIn]);
 
   // Доступ к свойствам объекта location
   const location = useLocation();
   const { pathname } = location;
-  const [ErrorPage, setErrorPage] = useState(false)
+  const [ErrorPage, setErrorPage] = useState(false);
   // const handleOpenMenu = handleToggleMenu;
   const [closeMenu, setCloseMenu] = useState(false);
 
   const handleToggleMenu = () => {
     setCloseMenu(!closeMenu);
-  }
+  };
 
   const handleSizeWindow = () => {
     setIsMobile(window.innerWidth <= 550);
@@ -118,15 +138,13 @@ function App() {
   };
 
   useEffect(() => {
-    const resizeWindow = window.addEventListener('resize', handleSizeWindow);
+    const resizeWindow = window.addEventListener("resize", handleSizeWindow);
     return resizeWindow;
   }, []);
 
-
   useEffect(() => {
     if (loggedIn) {
-      MainApi
-        .getUserInfo()
+      MainApi.getUserInfo()
         .then((user) => {
           setCurrentUser(user);
         })
@@ -138,92 +156,145 @@ function App() {
 
   function handleUpdateUser(value) {
     console.log(value);
-    MainApi.setUserInfo(value).then((res) => {
-      console.log(res);
-      setCurrentUser(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    MainApi.setUserInfo(value)
+      .then((res) => {
+        console.log(res);
+        setCurrentUser(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
-
 
   // Добавление фильмов в сохраненные и удаление из сохранненых
   const [saviedMovies, setSaviedMovies] = useState([]);
 
   useEffect(() => {
     MainApi.getSavedMovies()
-    .then((data) => {
-      setSaviedMovies(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  },[currentUser])
-
+      .then((data) => {
+        setSaviedMovies(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [currentUser]);
 
   const handleMovieLike = (card) => {
-    // const isLiked = savedMovies.some((item) => item.movieId === movie.movieId);
-    const isLiked = saviedMovies.some(i => i.movieId === card.movieId);
+    const isLiked = saviedMovies.some((i) => i.movieId === card.movieId);
     console.log(isLiked);
 
     if (!isLiked) {
-      MainApi
-        .setLikeMovie(card)
+      MainApi.setLikeMovie(card)
         .then((newCard) => {
           setSaviedMovies([...saviedMovies, newCard]);
         })
         .catch((err) => console.log(err));
     } else {
-
       // Найдем айдишник карточки  на которую мы кликнули
-      const id = saviedMovies.find(i => i.movieId === card.movieId)._id;
-      MainApi
-        .deleteMovie(id)
+      const id = saviedMovies.find((i) => i.movieId === card.movieId)._id;
+      MainApi.deleteMovie(id)
         .then(() => {
-          setSaviedMovies(saviedMovies.filter(i => i._id !== id));
+          setSaviedMovies(saviedMovies.filter((i) => i._id !== id));
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
         });
     }
   };
 
-
   const handleMovieCardDelete = (card) => {
-    MainApi
-      .deleteMovie(card._id)
+    MainApi.deleteMovie(card._id)
       .then(() => {
         setSaviedMovies((moviesCards) =>
-        moviesCards.filter(i => i._id !== card._id)
+          moviesCards.filter((i) => i._id !== card._id)
         );
       })
       .catch((err) => console.log(err));
   };
 
+  // const [rawMovies, setRawMovies] = useState(JSON.parse(localStorage.getItem('baseFilms')) || []);
+  const [keysWords, setKeysWords] = useState(
+    localStorage.getItem("keysWords") || ""
+  );
+  const [keysWordsSaviedSearch, setKeysWordsSaviedSearch] = useState(
+    localStorage.getItem("keysWordsSaviedSearch") || ""
+  );
+  const [checkBoxStatus, setCheckBoxStatus] = useState(
+    JSON.parse(localStorage.getItem("checkBoxStatus"))
+  );
+
   return (
     <div className="app__center">
-
       <CurrentUserContext.Provider value={currentUser}>
-        {(pathname !== '/signin' && pathname !== '/signup' && !ErrorPage) && <Header loggedIn={loggedIn} handleToggleMenu={handleToggleMenu}/>}
+        {pathname !== "/signin" && pathname !== "/signup" && !ErrorPage && (
+          <Header loggedIn={loggedIn} handleToggleMenu={handleToggleMenu} />
+        )}
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route  path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn}
-            initialMovies={initialMovies} onMovieLike={handleMovieLike} saviedMovies={saviedMovies}/>} />
-          <Route  path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} onMovieDelete={handleMovieCardDelete}
-            initialMovies={moviesFavorite} isTablet={isTablet} saviedMovies={saviedMovies}/>} />
-          <Route path="/profile" element={ <ProtectedRoute element={Profile} loggedIn={loggedIn} singOut={singOut} nameUser={nameUser} emailUser={emailUser} onUpdateUser={handleUpdateUser} />} />
+          <Route
+            path="/movies"
+            element={
+              <ProtectedRoute
+                element={Movies}
+                loggedIn={loggedIn}
+                onMovieLike={handleMovieLike}
+                saviedMovies={saviedMovies}
+                keysWords={keysWords}
+                setKeysWords={setKeysWords}
+                checkBoxStatus={checkBoxStatus}
+                setCheckBoxStatus={setCheckBoxStatus}
+              />
+            }
+          />
+          <Route
+            path="/saved-movies"
+            element={
+              <ProtectedRoute
+                element={SavedMovies}
+                loggedIn={loggedIn}
+                onMovieDelete={handleMovieCardDelete}
+                isTablet={isTablet}
+                saviedMovies={saviedMovies}
+                keysWords={keysWords} setKeysWords={setKeysWords} checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}
+                keysWordsSaviedSearch={keysWordsSaviedSearch}
+                setKeysWordsSaviedSearch={setKeysWordsSaviedSearch}
 
-          <Route path="/signin" element={<Login handleCheckLogin={handleCheckLogin} />} />
-          <Route path="/signup" element={<Register handleCheckRegister={handleCheckRegister} />} />
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute
+                element={Profile}
+                loggedIn={loggedIn}
+                singOut={singOut}
+                nameUser={nameUser}
+                emailUser={emailUser}
+                onUpdateUser={handleUpdateUser}
+              />
+            }
+          />
 
-          <Route path="*" element={<PageNotFound setErrorPage={setErrorPage} />} />
+          <Route
+            path="/signin"
+            element={<Login handleCheckLogin={handleCheckLogin} />}
+          />
+          <Route
+            path="/signup"
+            element={<Register handleCheckRegister={handleCheckRegister} />}
+          />
+
+          <Route
+            path="*"
+            element={<PageNotFound setErrorPage={setErrorPage} />}
+          />
         </Routes>
-        {(pathname === '/' || pathname === '/movies' || pathname === '/saved-movies') && <Footer />}
-        <Menu handler={closeMenu} handleToggleMenu={handleToggleMenu}/>
+        {(pathname === "/" ||
+          pathname === "/movies" ||
+          pathname === "/saved-movies") && <Footer />}
+        <Menu handler={closeMenu} handleToggleMenu={handleToggleMenu} />
       </CurrentUserContext.Provider>
-
     </div>
   );
 }
