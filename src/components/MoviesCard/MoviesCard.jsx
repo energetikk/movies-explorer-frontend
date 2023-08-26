@@ -15,6 +15,8 @@ const MoviesCard = ({card, onMovieLike, onMovieDelete, saviedMovies}) => {
   const location = useLocation();
   const {pathname} = location;
 
+  const moviesPage = pathname === '/movies'
+
   const value = card.duration;
   const hours = Math.floor(value / 60);
   const minutes = value % 60;
@@ -31,7 +33,7 @@ const MoviesCard = ({card, onMovieLike, onMovieDelete, saviedMovies}) => {
       duration: card.duration,
       year: card.year,
       description: card.description,
-      image: card.image.url,
+      image: `https://api.nomoreparties.co${card.image.url}`,
       trailerLink: card.trailerLink,
       thumbnail: card.image.formats.thumbnail.url,
     }
@@ -45,10 +47,10 @@ const MoviesCard = ({card, onMovieLike, onMovieDelete, saviedMovies}) => {
   return (
     <li className="movie">
       <figure className="movies__element">
-        <Link to={card.trailerLink} target="_blank"><img className="movies-card-image" src={`https://api.nomoreparties.co/${card.image.url}`} alt={`Картинка превью фильма: ${card.name}`} /></Link>
+        <Link to={card.trailerLink} target="_blank"><img className="movies-card-image" src={!moviesPage ? card.image : `https://api.nomoreparties.co/${card.image.url}`} alt={`Картинка превью фильма: ${card.nameRU}`} /></Link>
         <figcaption className="movies__card">
           <p className="movies__card-name">{card.nameRU}</p>
-          { pathname === '/movies' ?
+          { moviesPage ?
           (<button type="button" className={`${isLiked ? 'movies__button-like_active' : '' } movies__button-like`} onClick={handleLikeClick}></button>) :
           (<button type="button" className="movies__button-delete" onClick={handleUnLikeClick}></button>)
           }
