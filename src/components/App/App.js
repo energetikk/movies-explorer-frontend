@@ -33,32 +33,6 @@ function App() {
   const [nameUser, setNameUser] = useState("");
   const navigate = useNavigate();
 
-  ///////////////////////////////////////
-  // const [limit, setLimit] = useState(0)
-  //   const [amount, setAmount] = useState(0)
-  // const { width }  = useWindowDimensions();
-  // console.log(width);
-
-  // const{windowDimensions} = useWindowDimensions();
-
-  // const getLimit = () => {
-  //   if (width <= 700 && width > 400) {
-  //     setLimit(5);
-  //     setAmount(2)
-  //   } else if (width <= 400) {
-  //     setLimit(8);
-  //     setAmount(2)
-  //   } else {
-  //     setLimit(12);
-  //     setAmount(3)
-  //   }
-  // };
-
-  // const addMovies = () => setLimit(limit + amount);
-
-  // useEffect(getLimit, [width]);
-
-  //////////////////////////////////////
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
@@ -214,8 +188,7 @@ function App() {
 
   // const [rawMovies, setRawMovies] = useState(JSON.parse(localStorage.getItem('baseFilms')) || []);
   const [keysWords, setKeysWords] = useState(
-    localStorage.getItem("keysWords") || ""
-  );
+    localStorage.getItem("keysWords") || "");
   const [keysWordsSaviedSearch, setKeysWordsSaviedSearch] = useState(
     localStorage.getItem("keysWordsSaviedSearch") || ""
   );

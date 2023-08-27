@@ -43,6 +43,12 @@
   border: none;
 }
 
+.search-form__submit_disabled {
+  opacity: .8;
+  outline: none;
+  box-shadow: none;
+}
+
 .search-form__submit:hover {
   outline: 1px solid #FF004C;
   border-radius: 50%;

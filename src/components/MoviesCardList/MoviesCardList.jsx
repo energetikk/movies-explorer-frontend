@@ -5,7 +5,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 // import * as MoviesApi from "../../utils/MoviesApi"
 import { useLocation } from "react-router-dom";
 
-const MoviesCardList = ({ movieslist, onMovieLike, saviedMovies, onMovieDelete, keysWords, count, getMoreMovies, isTablet, isMobile }) => {
+const MoviesCardList = ({ movieslist, onMovieLike, saviedMovies, onMovieDelete, keysWords, count, getMoreMovies }) => {
 
   const location = useLocation();
   const { pathname } = location;
@@ -15,7 +15,7 @@ const MoviesCardList = ({ movieslist, onMovieLike, saviedMovies, onMovieDelete, 
     {pathname === '/movies' ?
       (<section className="movies-cards-list">
         <ul className="movies__preview-list">
-          {keysWords && movieslist.slice(0, count).map((card) => (
+          {movieslist.slice(0, count).map((card) => (
             <MoviesCard
               key={card.id}
               card={card}
