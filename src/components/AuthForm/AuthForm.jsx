@@ -128,7 +128,6 @@ function AuthForm({
             </span>
           )}
           </span>
-
         </div>
         {name === "register" ? (<button
           disabled={!nameuser.inputValid || !email.inputValid || !password.inputValid}
@@ -138,9 +137,6 @@ function AuthForm({
             disabled={!email.inputValid || !password.inputValid}
             type="submit"
             className={`${(!email.inputValid || !password.inputValid) && 'auth__submit_disable'} auth__submit`}>{textButton}</button>)}
-
-
-
       </form>
 
       {name === "register" ? (
