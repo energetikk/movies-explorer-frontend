@@ -161,6 +161,21 @@
   box-shadow: 0 0 10px 5px rgba(235, 61, 61, .4)
 }
 
+
+.profile__sucsess-update-message {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3DDC84;
+}
+
+.profile__sucsess-update-message_hidden {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .profile__container {
     /* margin: 236px auto; */

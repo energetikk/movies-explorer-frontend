@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
 import "./authForm.css";
-// import { useEffect } from "react";
 import useInput from "../../hooks/useForm"
 
 
@@ -17,6 +15,7 @@ function AuthForm({
   const nameuser = useInput("", {isEmpty: true, minLength: 2, maxLength: 40 });
   const email = useInput("", { isEmpty: true, emailRegEx: true});
   const password = useInput("", { isEmpty: true, minLength: 5, maxLength: 16 });
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

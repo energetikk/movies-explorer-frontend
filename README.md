@@ -1,12 +1,20 @@
 # Верстка дипломного проекта "Movies Explorer" 
 
 
-
 ## Ссылка на макет
 
 https://disk.yandex.ru/d/MbBmX_q3nhodJQ
 
-## Переключение отображения хедера
+## IP
 
-Для переклчения кнопок в хедере, необходимо в компоненте App.js на 23 строке переключить стейт аутентификации:
-const [loggedIn, setLoggedIn] = useState(true);
+51.250.10.165
+
+## Ссылка на сайт
+
+mymovies.nomoredomains.xyz
+
+## Ссылка на API
+
+api.mymovies.nomoredomains.xyz
+
+

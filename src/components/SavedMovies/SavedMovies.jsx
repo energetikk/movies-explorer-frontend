@@ -5,7 +5,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import { useState, useEffect } from "react";
 
 const SavedMovies = ({
-  isTablet,
   saviedMovies,
   onMovieDelete,
   setKeysWords,
@@ -14,8 +13,11 @@ const SavedMovies = ({
   setCheckBoxStatus,
   keysWordsSaviedSearch,
   setKeysWordsSaviedSearch,
-  // handleMoviesSearchSubmit
 }) => {
+
+  const [filteredMovies, setFilteredMovies] = useState(saviedMovies);
+  const [valueSave, setValueSave] = useState('');
+  const [checkBoxStatusSave, setCheckBoxStatusSave] = useState(false);
 
   function filterMovies(movies, value, checkBoxStatus) {
     return  movies.filter((movie) => !checkBoxStatus ?
@@ -24,28 +26,14 @@ const SavedMovies = ({
     (movie.nameEN.toLowerCase().includes(value.toLowerCase()) || movie.nameRU.toLowerCase().includes(value.toLowerCase())) && movie.duration <= 40);
   }
 
-
-
-  const [filteredMovies, setFilteredMovies] = useState(saviedMovies);
-  const [valueSave, setValueSave] = useState('');
-  const [checkBoxStatusSave, setCheckBoxStatusSave] = useState(false); //Значение переключателя на странице сохраненных фильмах
-
   function handleMoviesSearchSubmit(valueSave) {
     setValueSave(valueSave);
   }
-
-  // function handleShortMovies() {
-  //   setCheckBoxStatusSave(!checkBoxStatusSave);
-  // }
 
   useEffect(() => {
     const moviesList = filterMovies(saviedMovies, valueSave, checkBoxStatusSave);
     setFilteredMovies(moviesList);
   }, [saviedMovies, valueSave, checkBoxStatusSave]);
-
-
-
-
 
   useEffect(() => {
     if (filteredMovies.length === 0) {
@@ -54,12 +42,6 @@ const SavedMovies = ({
       // setErrorMessage("")
     }
   }, [filteredMovies]);
-
-
-
-
-
-
 
   return (
     <main className="saved-movies__container">
@@ -74,7 +56,6 @@ const SavedMovies = ({
         setValue={setValueSave}
       />
       <MoviesCardList
-        isTablet={isTablet}
         // saviedMovies={filter(saviedMovies)}
         saviedMovies={filteredMovies}
         onMovieDelete={onMovieDelete}

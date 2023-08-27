@@ -9,28 +9,21 @@ const SearchForm = ({
   setValue,
   value,
   getFavoriteMovies,
-  onSubmitSearch,
-  setKeysWords,
-  keysWords,
   checkBoxStatus,
   setCheckBoxStatus,
-  keysWordsSaviedSearch,
-  setKeysWordsSaviedSearch,
+  errorSearchMovies
 }) => {
   const location = useLocation();
   const { pathname } = location;
 
   function handleSearchInput(evt) {
-    // const value = evt.target.value;
-    // setKeysWords(value);
-    // localStorage.setItem('keysWords', value);
     setValue(evt.target.value);
   }
 
   function searchMoviesSubmit(evt) {
     evt.preventDefault();
     if (!value) {
-      if (location.pathname === "/movies") {
+      if (pathname === "/movies") {
         // setError("Нужно ввести ключевое слово")
         // setErrorMessage('')
         localStorage.setItem("requestKey", "");
@@ -70,9 +63,9 @@ const SearchForm = ({
         checkBoxStatus={checkBoxStatus}
         setCheckBoxStatus={setCheckBoxStatus}
       />
-      {/* {requestMoviesEmpty ?
-      (<p>Введите запрос...</p>) : ''
-    } */}
+      {!errorSearchMovies ? <></> : (<p className="search-form__error">Ничего не найдено...</p>)}
+
+
     </section>
   );
 };

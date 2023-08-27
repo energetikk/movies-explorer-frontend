@@ -62,6 +62,15 @@
   margin-top: 13px;
 }
 
+.search-form__error {
+  padding: 0;
+  margin: 10px 0 0 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 @media screen and (max-width: 768px) {
   .search-form__container {
     padding: 80px 30px 0;

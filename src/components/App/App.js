@@ -4,35 +4,33 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./App.css";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import SearchForm from "../SearchForm/SearchForm";
 import SavedMovies from "../SavedMovies/SavedMovies";
-// import { initialCards, moviesFavorite } from "../../utils/constants";
 import Movies from "../Movies/Movies";
 import { useLocation } from "react-router-dom";
 import Menu from "../Menu/Menu";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-// import * as Auth from "../../utils/auth";
-// import api from "../../utils/api";
 import * as MainApi from "../../utils/MainApi";
-// import * as MoviesApi from "../../utils/MoviesApi"
-// import useWindowDimensions from "../../hooks/useWindowSize";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 550);
-  const [isTablet, setIsTablet] = React.useState(window.innerWidth <= 768);
   const [isStatusLoginError, setIsStatusLoginError] = useState(false);
   const [emailUser, setEmailUser] = useState("");
   const [nameUser, setNameUser] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [updateProfileSuccess, setUpdateProfileSuccess] = useState(false);
   const navigate = useNavigate();
 
+  // Доступ к свойствам объекта location
+  const location = useLocation();
+  const { pathname } = location;
+  const { search } = location;
 
   function handleCheckStatusLoginError() {
     setIsStatusLoginError(true);
@@ -44,7 +42,7 @@ function App() {
       MainApi.getContent(jwt)
         .then((user) => {
           handleLogin(user);
-          navigate("/", { replace: true });
+          navigate(`${pathname}${search}`, { replace: true });
         })
         .catch((err) => console.log(err));
     }
@@ -70,9 +68,10 @@ function App() {
   }
 
   function handleCheckLogin(password, email) {
+    setIsLoading(true);
     MainApi.authorize({ password, email })
       .then((res) => {
-        console.log(res.token);
+        setIsLoading(false);
         if (res.token) {
           localStorage.setItem("jwt", res.token);
           handleLogin(email);
@@ -82,11 +81,19 @@ function App() {
       .catch((err) => {
         handleCheckStatusLoginError();
         console.log(`ошибка ${err}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function singOut() {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("requestKey");
+    localStorage.removeItem("baseFilms");
+    localStorage.removeItem("checkBoxStatus");
+    localStorage.removeItem("findedMovies");
+    localStorage.removeItem("findedMoviesShort");
     setLoggedIn(false);
     navigate("/signin");
   }
@@ -95,26 +102,12 @@ function App() {
     tokenCheck();
   }, [loggedIn]);
 
-  // Доступ к свойствам объекта location
-  const location = useLocation();
-  const { pathname } = location;
   const [ErrorPage, setErrorPage] = useState(false);
-  // const handleOpenMenu = handleToggleMenu;
   const [closeMenu, setCloseMenu] = useState(false);
 
   const handleToggleMenu = () => {
     setCloseMenu(!closeMenu);
   };
-
-  const handleSizeWindow = () => {
-    setIsMobile(window.innerWidth <= 550);
-    setIsTablet(window.innerWidth <= 768);
-  };
-
-  useEffect(() => {
-    const resizeWindow = window.addEventListener("resize", handleSizeWindow);
-    return resizeWindow;
-  }, []);
 
   useEffect(() => {
     if (loggedIn) {
@@ -129,14 +122,20 @@ function App() {
   }, [loggedIn]);
 
   function handleUpdateUser(value) {
-    console.log(value);
     MainApi.setUserInfo(value)
       .then((res) => {
         console.log(res);
         setCurrentUser(res);
+        setUpdateProfileSuccess(true);
+        setTimeout(() => {
+          setUpdateProfileSuccess(false);
+        }, 3000)
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+
       });
   }
 
@@ -226,7 +225,7 @@ function App() {
                 element={SavedMovies}
                 loggedIn={loggedIn}
                 onMovieDelete={handleMovieCardDelete}
-                isTablet={isTablet}
+                // isTablet={isTablet}
                 saviedMovies={saviedMovies}
                 keysWords={keysWords} setKeysWords={setKeysWords} checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}
                 keysWordsSaviedSearch={keysWordsSaviedSearch}
@@ -245,10 +244,10 @@ function App() {
                 nameUser={nameUser}
                 emailUser={emailUser}
                 onUpdateUser={handleUpdateUser}
+                updateProfileSuccess={updateProfileSuccess}
               />
             }
           />
-
           <Route
             path="/signin"
             element={<Login handleCheckLogin={handleCheckLogin} />}

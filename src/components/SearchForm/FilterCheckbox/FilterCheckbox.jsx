@@ -15,7 +15,7 @@ const handleCheckBoxToggle = (evt) => {
   return (
     <div className="filter-checkbox">
       <input type="checkbox" id="myCheckbox" checked={checkBoxStatus} onChange={handleCheckBoxToggle}/>
-      <label for="myCheckbox" class="checkbox-toggle"></label>
+      <label htmlFor="myCheckbox" className="checkbox-toggle"></label>
       <p className="filter-checkbox-name">Короткометражки</p>
     </div>
   )
