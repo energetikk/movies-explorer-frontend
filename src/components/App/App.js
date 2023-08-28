@@ -57,7 +57,7 @@ function App() {
   function handleCheckRegister(name, password, email) {
     MainApi.register({ name, password, email })
       .then((res) => {
-        console.log(res);
+        handleCheckLogin(password, email);
         setLoggedIn(true);
         navigate("/movies", { replace: true });
       })
@@ -143,6 +143,7 @@ function App() {
   const [saviedMovies, setSaviedMovies] = useState([]);
 
   useEffect(() => {
+    if (loggedIn) {
     MainApi.getSavedMovies()
       .then((data) => {
         setSaviedMovies(data);
@@ -150,6 +151,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    }
   }, [currentUser]);
 
   const handleMovieLike = (card) => {
