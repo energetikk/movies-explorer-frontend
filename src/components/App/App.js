@@ -58,7 +58,7 @@ function App() {
     MainApi.register({ name, password, email })
       .then((res) => {
         handleCheckLogin(password, email);
-        setLoggedIn(true);
+        // setLoggedIn(true);
         navigate("/movies", { replace: true });
       })
       .catch((err) => {
@@ -74,7 +74,8 @@ function App() {
         setIsLoading(false);
         if (res.token) {
           localStorage.setItem("jwt", res.token);
-          handleLogin(email);
+          setLoggedIn(true);
+          handleLogin({ password, email });
           navigate("/movies", { replace: true });
         }
       })
