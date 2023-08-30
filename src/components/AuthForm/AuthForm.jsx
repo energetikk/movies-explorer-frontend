@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./authForm.css";
-import useInput from "../../hooks/useForm"
+import useInput from "../../hooks/useForm";
 
 
 function AuthForm({

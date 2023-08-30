@@ -4,7 +4,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./App.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
@@ -96,7 +96,7 @@ function App() {
     localStorage.removeItem("findedMovies");
     localStorage.removeItem("findedMoviesShort");
     setLoggedIn(false);
-    navigate("/signin");
+    navigate("/");
   }
 
   useEffect(() => {
@@ -253,11 +253,11 @@ function App() {
           />
           <Route
             path="/signin"
-            element={<Login handleCheckLogin={handleCheckLogin} />}
+            element={loggedIn ? <Navigate to="/" /> : <Login handleCheckLogin={handleCheckLogin} />}
           />
           <Route
             path="/signup"
-            element={<Register handleCheckRegister={handleCheckRegister} />}
+            element={loggedIn ? <Navigate to="/" /> : <Register handleCheckRegister={handleCheckRegister} />}
           />
 
           <Route

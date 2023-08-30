@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./SearchForm.css";
 import FilterCheckbox from "./FilterCheckbox/FilterCheckbox";
 import { useLocation } from "react-router-dom";
+import useInput from "../../hooks/useForm";
+import { useEffect } from "react";
 
 const SearchForm = ({
   handleMoviesSearchSubmit,
@@ -15,6 +17,17 @@ const SearchForm = ({
 }) => {
   const location = useLocation();
   const { pathname } = location;
+
+  const namemovie = useInput("", {isEmpty: true });
+
+
+
+  useEffect(() => {
+    namemovie.setFormValue(value);
+  }, [value])
+
+  // console.log(namemovie.formvalue);
+  // console.log(namemovie.inputValid);
 
   function handleSearchInput(evt) {
     setValue(evt.target.value);
@@ -48,15 +61,29 @@ const SearchForm = ({
           placeholder="Фильм"
           value={value}
           onChange={handleSearchInput}
+          onBlur={(evt) => namemovie.onBlur(evt)}
         />
-        <button
+        {/* <button
           type="submit"
           className={`search-form__submit ${
             !value ? "search-form__submit_disabled" : ""
           }`}
           disabled={!value}
-        ></button>
+        ></button> */}
+
+    <button
+          disabled={!namemovie.inputValid}
+          type="submit"
+          className={`${(!namemovie.inputValid) && 'search-form__submit_disabled'} search-form__submit`}></button>
+      {namemovie.isDirty && namemovie.isEmpty && (
+            <span className={`${namemovie.isDirty && namemovie.isEmpty ? 'search-form__empty' : 'search-form__empty_hide'}`}>
+              Нужно ввести ключевое слово...
+            </span>
+          )}
       </form>
+
+
+
       <span className="search-form__line"></span>
       <FilterCheckbox
         className="filter-checkbox"

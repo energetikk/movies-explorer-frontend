@@ -75,7 +75,7 @@ useEffect(() => {
             setFilteredMovies(movies)
           }
       }
-  }, [])
+  }, [checkBoxStatus])
 
   useEffect(() => {
       if (JSON.parse(localStorage.getItem('checkBoxStatus')) && JSON.parse(localStorage.getItem('findedMoviesShort'))) {
@@ -99,7 +99,7 @@ useEffect(() => {
       }
   }, [])
 
-  const [count, setCount] = useState(12);
+  const [count, setCount] = useState(0);
   const [amount, setAmount] = useState(0);
   const width = useWindowSize();
   const getMoreMovies = () => setCount(count + amount);
@@ -109,7 +109,7 @@ useEffect(() => {
       setAmount(2)
     } else if (width < 1010){
         setCount(8);
-        setAmount(4)
+        setAmount(2)
       } else if (width < 1280) {
       setCount(9);
       setAmount(3)
