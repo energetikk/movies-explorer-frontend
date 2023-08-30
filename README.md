@@ -17,4 +17,7 @@ mymovies.nomoredomains.xyz
 
 api.mymovies.nomoredomains.xyz
 
+## ссылка на пулреквест 4 этапа
+
+https://github.com/energetikk/movies-explorer-frontend/pull/2
 
