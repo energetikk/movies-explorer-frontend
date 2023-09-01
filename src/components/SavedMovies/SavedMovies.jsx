@@ -13,11 +13,17 @@ const SavedMovies = ({
   setCheckBoxStatus,
   keysWordsSaviedSearch,
   setKeysWordsSaviedSearch,
+  setSubmitError,
+  submitError,
+  getSaviedMovies,
+  value,
+  setValue
 }) => {
 
   const [filteredMovies, setFilteredMovies] = useState(saviedMovies);
   const [valueSave, setValueSave] = useState('');
   const [checkBoxStatusSave, setCheckBoxStatusSave] = useState(false);
+  const [errorSearchSaveMovies, setErrorSearchSaveMovies] = useState(false);
 
   function filterMovies(movies, value, checkBoxStatus) {
     return  movies.filter((movie) => !checkBoxStatus ?
@@ -27,7 +33,14 @@ const SavedMovies = ({
   }
 
   function handleMoviesSearchSubmit(valueSave) {
+    if (valueSave) {
+      setSubmitError(false);
+    }
     setValueSave(valueSave);
+  }
+
+  function toggleMoviesShort() {
+    setCheckBoxStatus(!checkBoxStatus);
   }
 
   useEffect(() => {
@@ -37,9 +50,9 @@ const SavedMovies = ({
 
   useEffect(() => {
     if (filteredMovies.length === 0) {
-      // setErrorMessage("Ничего не найдено")
+      setErrorSearchSaveMovies(true);
     } else {
-      // setErrorMessage("")
+      setErrorSearchSaveMovies(false);
     }
   }, [filteredMovies]);
 
@@ -54,9 +67,14 @@ const SavedMovies = ({
         setKeysWordsSaviedSearch={setKeysWordsSaviedSearch}
         handleMoviesSearchSubmit={handleMoviesSearchSubmit}
         setValue={setValueSave}
+        valueSave={valueSave}
+        setSubmitError={setSubmitError}
+        submitError={submitError}
+        toggleMoviesShort={toggleMoviesShort}
+        getSaviedMovies={getSaviedMovies}
+        errorSearchSaveMovies={errorSearchSaveMovies}
       />
       <MoviesCardList
-        // saviedMovies={filter(saviedMovies)}
         saviedMovies={filteredMovies}
         onMovieDelete={onMovieDelete}
       />

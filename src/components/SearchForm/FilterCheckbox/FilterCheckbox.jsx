@@ -1,16 +1,18 @@
 import React from "react";
-import { useState } from "react";
 import './FilterCheckbox.css';
+import { useLocation } from "react-router-dom";
 
-const FilterCheckbox = ({checkBoxStatus, setCheckBoxStatus}) => {
+const FilterCheckbox = ({checkBoxStatus, setCheckBoxStatus, toggleMoviesShort, setSubmitError, value}) => {
+const location = useLocation();
 
 const handleCheckBoxToggle = (evt) => {
-  const value = evt.target.checked;
-  setCheckBoxStatus(value);
-  localStorage.setItem('checkBoxStatus', value);
+  if ((!(localStorage.getItem('baseFilms')) || !value) && location.pathname === '/movies') {
+    setSubmitError(true)
+    return
+  }
+    setCheckBoxStatus(!checkBoxStatus);
+    toggleMoviesShort();
 }
-
-
 
   return (
     <div className="filter-checkbox">

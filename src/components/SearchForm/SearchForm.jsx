@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./SearchForm.css";
 import FilterCheckbox from "./FilterCheckbox/FilterCheckbox";
 import { useLocation } from "react-router-dom";
@@ -10,24 +9,29 @@ const SearchForm = ({
   handleMoviesSearchSubmit,
   setValue,
   value,
-  getFavoriteMovies,
+  getSaviedMovies,
   checkBoxStatus,
   setCheckBoxStatus,
-  errorSearchMovies
+  errorSearchMovies,
+  toggleMoviesShort,
+  submitError,
+  setSubmitError,
+  valueSave,
+  errorSearchSaveMovies
 }) => {
+
   const location = useLocation();
   const { pathname } = location;
 
   const namemovie = useInput("", {isEmpty: true });
 
-
-
   useEffect(() => {
     namemovie.setFormValue(value);
   }, [value])
 
-  // console.log(namemovie.formvalue);
-  // console.log(namemovie.inputValid);
+  useEffect(() => {
+    setSubmitError(false);
+  }, [value, valueSave])
 
   function handleSearchInput(evt) {
     setValue(evt.target.value);
@@ -37,18 +41,18 @@ const SearchForm = ({
     evt.preventDefault();
     if (!value) {
       if (pathname === "/movies") {
-        // setError("Нужно ввести ключевое слово")
-        // setErrorMessage('')
+        setSubmitError(true);
         localStorage.setItem("requestKey", "");
         localStorage.setItem("findedMovies", []);
         localStorage.setItem("findedMoviesShort", []);
         return;
-      } else {
-        getFavoriteMovies();
+      } else if(valueSave) {
+        console.log('test')
+        getSaviedMovies();
       }
     } else {
       handleMoviesSearchSubmit(value);
-      // pathname === '/movies' && setError('')
+      setSubmitError(false);
     }
   }
 
@@ -63,36 +67,27 @@ const SearchForm = ({
           onChange={handleSearchInput}
           onBlur={(evt) => namemovie.onBlur(evt)}
         />
-        {/* <button
+        <button
+          disabled={submitError}
           type="submit"
-          className={`search-form__submit ${
-            !value ? "search-form__submit_disabled" : ""
-          }`}
-          disabled={!value}
-        ></button> */}
-
-    <button
-          disabled={!namemovie.inputValid}
-          type="submit"
-          className={`${(!namemovie.inputValid) && 'search-form__submit_disabled'} search-form__submit`}></button>
-      {namemovie.isDirty && namemovie.isEmpty && (
-            <span className={`${namemovie.isDirty && namemovie.isEmpty ? 'search-form__empty' : 'search-form__empty_hide'}`}>
+          className={`${!submitError && 'search-form__submit_disabled'} search-form__submit`}>
+        </button>
+        <span className={`${submitError ? 'search-form__empty' : 'search-form__empty_hide'}`}>
               Нужно ввести ключевое слово...
-            </span>
-          )}
+        </span>
       </form>
-
-
-
       <span className="search-form__line"></span>
       <FilterCheckbox
         className="filter-checkbox"
         checkBoxStatus={checkBoxStatus}
         setCheckBoxStatus={setCheckBoxStatus}
+        toggleMoviesShort={toggleMoviesShort}
+        submitError={submitError}
+        setSubmitError={setSubmitError}
+        value={value}
       />
       {!errorSearchMovies ? <></> : (<p className="search-form__error">Ничего не найдено...</p>)}
-
-
+      {!errorSearchSaveMovies ? <></> : (<p className="search-form__error">Ничего не найдено...</p>)}
     </section>
   );
 };

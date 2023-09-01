@@ -26,6 +26,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [updateProfileSuccess, setUpdateProfileSuccess] = useState(false);
   const navigate = useNavigate();
+  const [submitError, setSubmitError] = useState(false);
 
   // Доступ к свойствам объекта location
   const location = useLocation();
@@ -58,7 +59,6 @@ function App() {
     MainApi.register({ name, password, email })
       .then((res) => {
         handleCheckLogin(password, email);
-        // setLoggedIn(true);
         navigate("/movies", { replace: true });
       })
       .catch((err) => {
@@ -143,17 +143,34 @@ function App() {
   // Добавление фильмов в сохраненные и удаление из сохранненых
   const [saviedMovies, setSaviedMovies] = useState([]);
 
-  useEffect(() => {
-    if (loggedIn) {
-    MainApi.getSavedMovies()
-      .then((data) => {
-        setSaviedMovies(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //   MainApi.getSavedMovies()
+  //     .then((data) => {
+  //       setSaviedMovies(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   }
+  // }, [currentUser]);
+
+function getSaviedMovies() {
+  // setSubmitError(false);
+  if (loggedIn) {
+      MainApi.getSavedMovies()
+        .then((data) => {
+          setSaviedMovies(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+}
+
+useEffect(() => {
+  getSaviedMovies()
+}, [currentUser])
 
   const handleMovieLike = (card) => {
     const isLiked = saviedMovies.some((i) => i.movieId === card.movieId);
@@ -218,6 +235,10 @@ function App() {
                 setKeysWords={setKeysWords}
                 checkBoxStatus={checkBoxStatus}
                 setCheckBoxStatus={setCheckBoxStatus}
+                submitError={submitError}
+                setSubmitError={setSubmitError}
+                // value={value}
+                // setValue={setValue}
               />
             }
           />
@@ -228,11 +249,15 @@ function App() {
                 element={SavedMovies}
                 loggedIn={loggedIn}
                 onMovieDelete={handleMovieCardDelete}
-                // isTablet={isTablet}
                 saviedMovies={saviedMovies}
                 keysWords={keysWords} setKeysWords={setKeysWords} checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}
                 keysWordsSaviedSearch={keysWordsSaviedSearch}
                 setKeysWordsSaviedSearch={setKeysWordsSaviedSearch}
+                submitError={submitError}
+                 setSubmitError={setSubmitError}
+                 getSaviedMovies={getSaviedMovies}
+                //  value={value}
+                //  setValue={setValue}
 
               />
             }
