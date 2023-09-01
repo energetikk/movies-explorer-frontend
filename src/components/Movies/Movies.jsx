@@ -7,6 +7,20 @@ import * as MoviesApi from "../../utils/MoviesApi";
 import { useEffect } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import Preloader from "../Preloader/Preloader";
+import {
+  SHORT_FILM,
+  SCREEN_PC,
+  SCREEN_TABLET,
+  SCREEN_MOBILE,
+  CARDS_SCREEN_PC,
+  CARDS_SCREEN_TABLETPLUS,
+  CARDS_SCREEN_TABLET,
+  CARDS_SCREEN_MOBILE,
+  AMOUNT_PC,
+  AMOUNT_TABLETPLUS,
+  AMOUNT_TABLET,
+  AMOUNT_MOBILE
+} from '../../utils/const';
 
 const Movies = ({ onMovieLike, saviedMovies, keysWords, setKeysWords, submitError, setSubmitError }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +70,7 @@ const Movies = ({ onMovieLike, saviedMovies, keysWords, setKeysWords, submitErro
   }
 
   function filterShortMovies(movies) {
-    return movies.filter((movie) => movie.duration <= 40);
+    return movies.filter((movie) => movie.duration <= SHORT_FILM);
   }
 
   function filterMoviesByKey(movies, value) {
@@ -114,18 +128,18 @@ const Movies = ({ onMovieLike, saviedMovies, keysWords, setKeysWords, submitErro
   const width = useWindowSize();
   const getMoreMovies = () => setCount(count + amount);
   const getLimit = () => {
-    if (width < 767) {
-      setCount(5);
-      setAmount(2);
-    } else if (width < 1010) {
-      setCount(8);
-      setAmount(2);
-    } else if (width < 1280) {
-      setCount(9);
-      setAmount(3);
+    if (width < SCREEN_MOBILE) {
+      setCount(CARDS_SCREEN_MOBILE);
+      setAmount(AMOUNT_MOBILE);
+    } else if (width < SCREEN_TABLET) {
+      setCount(CARDS_SCREEN_TABLET);
+      setAmount(AMOUNT_TABLET);
+    } else if (width < SCREEN_PC) {
+      setCount(CARDS_SCREEN_TABLETPLUS);
+      setAmount(AMOUNT_TABLETPLUS);
     } else {
-      setCount(16);
-      setAmount(4);
+      setCount(CARDS_SCREEN_PC);
+      setAmount(AMOUNT_PC);
     }
   };
 
