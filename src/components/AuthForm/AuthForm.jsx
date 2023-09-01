@@ -14,7 +14,7 @@ function AuthForm({
 
   const nameuser = useInput("", {isEmpty: true, minLength: 2, maxLength: 40 });
   const email = useInput("", { isEmpty: true, emailRegEx: true});
-  const password = useInput("", { isEmpty: true, minLength: 5, maxLength: 16 });
+  const password = useInput("", { isEmpty: true, minLength: 6, maxLength: 12 });
 
 
   const handleSubmit = (evt) => {
@@ -59,7 +59,7 @@ function AuthForm({
             <span className="input-errors">
             {nameuser.isDirty && nameuser.minLengthError && (
             <span id="input-nameuser-error" className="popup__error">
-              не моет быть меньше 3 символов
+              Не может быть меньше 2 символов
             </span>
           )}
 
@@ -117,9 +117,9 @@ function AuthForm({
             onBlur={(evt) => password.onBlur(evt)}
           />
           <span className="input-errors">
-          {password.isDirty && password.minLengthError && (
+          {(password.isDirty && password.minLengthError || password.maxLengthError) && (
             <span id="input-password-error" className="popup__error">
-              Пароль должен быть от 3 до 16 символов!
+              Пароль должен быть от 6 до 12 символов!
             </span>
           )}
           {password.isDirty && password.isEmpty && (
