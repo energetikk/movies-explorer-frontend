@@ -11,7 +11,6 @@ function Header({ loggedIn, handleToggleMenu }) {
 
   const backgroundHeader = loggedIn && pathname !== '/' ? 'header__background_dark' : '';
 
-  // const location = useLocation();
   const isActive = true;
 
   return (

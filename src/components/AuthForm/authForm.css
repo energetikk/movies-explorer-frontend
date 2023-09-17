@@ -35,6 +35,8 @@
   cursor: pointer;
 }
 
+
+
 .auth__submit:hover {
   opacity: .8;
   transition: opacity .2s 20ms ease-in-out;
@@ -58,6 +60,11 @@
 .auth__submit_signin:hover {
   opacity: .8;
   transition: opacity .2s 20ms ease-in-out;
+}
+
+.auth__submit_disable {
+  background-color: #F8F8F8;
+  color: black;
 }
 
 .form__title-auth {
@@ -222,6 +229,14 @@
   line-height: 12px;
   font-family: "Inter", "Arial", sans-serif;
 }
+
+.input-errors {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+
 
 @media screen and (max-width: 768px) {
   .auth__container {
