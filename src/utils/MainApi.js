@@ -1,5 +1,6 @@
-// export const BASE_URL = "http://localhost:3000/";
-export const BASE_URL = 'https://api.mymovies.nomoredomains.xyz/';
+// export const BASE_URL = "http://localhost:3001/";
+export const BASE_URL = 'https://api.deminpavel.ru/';
+// export const BASE_URL = 'https://api.mymovies.nomoredomains.xyz/';
 
 //Проверка ответа от сервера
 function checkResponse(res) {
