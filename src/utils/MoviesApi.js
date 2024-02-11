@@ -14,7 +14,6 @@ const getMovies = () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   }).then((res) => checkResponse(res));
 };

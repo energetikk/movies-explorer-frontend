@@ -1,6 +1,5 @@
 // export const BASE_URL = "http://localhost:3001/";
 export const BASE_URL = 'https://api.deminpavel.ru/';
-// export const BASE_URL = 'https://api.mymovies.nomoredomains.xyz/';
 
 //Проверка ответа от сервера
 function checkResponse(res) {
@@ -57,7 +56,6 @@ export const getUserInfo = () => {
 };
 
 //Записать обновленную информацию о пользователе на сервер
-// setUserInfo(data) {
 export const setUserInfo = ({ name, email }) => {
   return fetch(`${BASE_URL}users/me/`, {
     method: "PATCH",
