@@ -11,6 +11,7 @@ https://disk.yandex.ru/d/MbBmX_q3nhodJQ
 
 ## Ссылка на сайт
 
+paveldemin.vercel.app
 mymovies.nomoredomains.xyz
 
 ## Ссылка на API
