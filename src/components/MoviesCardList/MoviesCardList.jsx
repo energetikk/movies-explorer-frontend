@@ -1,32 +1,62 @@
 import React from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const MoviesCardList = ({ initialMovies, isTablet, isMobile }) => {
-  // const arrSizeWindowTablet =  isTablet ? initialMovies : initialMovies.slice(0,2);
-  // const location = useLocation();
-  // const { pathname } = location;
-  // const arrSizeWindowMobile =  (isMobile && pathname === '/movies') ? initialMovies : initialMovies.slice(0,8);
+const MoviesCardList = ({
+  movieslist,
+  onMovieLike,
+  saviedMovies,
+  onMovieDelete,
+  count,
+  getMoreMovies,
+}) => {
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <>
-      <section className="movies-cards-list">
-        <ul className="movies__preview-list">
-          {initialMovies.map((card) => (
-            <MoviesCard
-              key={card.index}
-              card={card}
-              initialMovies={initialMovies}
-            />
-          ))}
-        </ul>
-        {initialMovies.length > 4 && (
-          <button type="button" className="movies__more-button">
-            Ещё
-          </button>
-        )}
-      </section>
+      {pathname === "/movies" ? (
+        <section className="movies-cards-list">
+          <ul className="movies__preview-list">
+            {movieslist.slice(0, count).map((card) => (
+              <MoviesCard
+                key={card.id}
+                card={card}
+                movieslist={movieslist}
+                onMovieLike={onMovieLike}
+                saviedMovies={saviedMovies}
+                onMovieDelete={onMovieDelete}
+              />
+            ))}
+          </ul>
+          {!(movieslist.length <= count) ? (
+            <button
+              type="button"
+              className="movies__more-button"
+              onClick={getMoreMovies}
+            >
+              Ещё
+            </button>
+          ) : (
+            <></>
+          )}
+        </section>
+      ) : (
+        <section className="movies-cards-list">
+          <ul className="movies__preview-list">
+            {saviedMovies.map((card) => (
+              <MoviesCard
+                key={card.id}
+                card={card}
+                onMovieLike={onMovieLike}
+                saviedMovies={saviedMovies}
+                onMovieDelete={onMovieDelete}
+              />
+            ))}
+          </ul>
+        </section>
+      )}
     </>
   );
 };

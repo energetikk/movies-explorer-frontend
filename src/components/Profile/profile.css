@@ -84,6 +84,12 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
+  cursor: pointer;
+}
+
+.button__logout:hover {
+  opacity: .8;
+  transition: opacity .2s 20ms ease-in-out;
 }
 
 .button__save-profile {
@@ -126,7 +132,14 @@
   font-size: 11px;
   line-height: 13px;
   position: absolute;
-  top: 187px;
+  top: 425px;
+  left: 85px;
+}
+
+.form-button__profile {
+  /* margin: 223px 0 0; */
+  display: flex;
+  flex-direction: column;
 }
 
 .profile__value-edit {
@@ -146,6 +159,21 @@
   outline: 1px solid #FF004C;
   border-radius: 2px;
   box-shadow: 0 0 10px 5px rgba(235, 61, 61, .4)
+}
+
+
+.profile__sucsess-update-message {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3DDC84;
+}
+
+.profile__sucsess-update-message_hidden {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

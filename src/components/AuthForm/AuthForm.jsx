@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-// import {useForm} from "../hooks/useForm"
+import { Link } from "react-router-dom";
 import "./authForm.css";
+import useInput from "../../hooks/useForm";
+
 
 function AuthForm({
   name,
@@ -11,24 +11,22 @@ function AuthForm({
   handleCheckRegister,
   handleCheckLogin,
 }) {
-  // const navigate = useNavigate();
-  const [formValue, setFormValue] = useState({
-    password: "",
-    email: "",
-  });
 
-  const handleChangeInput = (evt) => {
-    const { name, value } = evt.target;
-    setFormValue({ ...formValue, [name]: value });
-  };
+  const nameuser = useInput("", {isEmpty: true, minLength: 2, maxLength: 40 });
+  const email = useInput("", { isEmpty: true, emailRegEx: true});
+  const password = useInput("", { isEmpty: true, minLength: 6, maxLength: 12 });
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const { password, email, nameuser } = formValue;
     if (name === "register") {
-      handleCheckRegister(password, email);
+      handleCheckRegister(
+        nameuser.formValue,
+        password.formValue,
+        email.formValue
+      );
     } else {
-      handleCheckLogin(password, email);
+      handleCheckLogin(password.formValue, email.formValue);
     }
   };
 
@@ -40,11 +38,11 @@ function AuthForm({
         onSubmit={handleSubmit}
         noValidate
       >
-        <Link to='/' className="logo-auth"></Link>
+        <Link to="/" className="logo-auth"></Link>
         <h2 className="form__title-auth">{title}</h2>
         {name === "register" && (
           <div className="input-block">
-          <div className="nameinput-nameuser">Имя</div>
+            <div className="nameinput-nameuser">Имя</div>
             <input
               id="input-nameuser"
               required
@@ -54,51 +52,91 @@ function AuthForm({
               placeholder="Имя"
               name="nameuser"
               className="form__item-auth form__item_el_nameuser"
-              onChange={handleChangeInput}
-              value={formValue.nameuser || ""}
+              onChange={(evt) => nameuser.handleChangeInput(evt)}
+              value={nameuser.formValue || ""}
+              onBlur={(evt) => nameuser.onBlur(evt)}
             />
-            <span id="input-nameuser-error" className="popup__error"></span>
+            <span className="input-errors">
+            {nameuser.isDirty && nameuser.minLengthError && (
+            <span id="input-nameuser-error" className="popup__error">
+              Не может быть меньше 2 символов
+            </span>
+          )}
 
+          {nameuser.isDirty && nameuser.isEmpty && (
+            <span id="input-nameuser-error" className="popup__error">
+              Заполните поле!!!
+            </span>
+          )}
+          </span>
           </div>
         )}
 
         <div className="input-block">
-        <div className="nameinput-nameuser">Email</div>
-        <input
-          id="input-email"
-          required
-          minLength="2"
-          maxLength="40"
-          type="email"
-          placeholder="E-mail"
-          name="email"
-          className="form__item-auth form__item_el_email"
-          onChange={handleChangeInput}
-          value={formValue.email || ""}
-        />
-        <span id="input-email-error" className="popup__error"></span>
+          <div className="nameinput-nameuser">Email</div>
+          <input
+            id="input-email"
+            required
+            minLength="2"
+            maxLength="40"
+            type="email"
+            placeholder="E-mail"
+            name="email"
+            className="form__item-auth form__item_el_email"
+            onChange={(evt) => email.handleChangeInput(evt)}
+            value={email.formValue || ""}
+            onBlur={(evt) => email.onBlur(evt)}
+          />
+          <span className="input-errors">
+          {email.isDirty && email.emailError && (
+            <span id="input-email-error" className="popup__error">
+              Не правильный Email!
+            </span>
+          )}
+          {email.isDirty && email.isEmpty && (
+            <span id="input-email-error" className="popup__error">
+              Заполните поле!
+            </span>
+          )}
+          </span>
         </div>
 
         <div className="input-block">
-        <div className="nameinput-nameuser">Пароль</div>
-        <input
-          id="input-password"
-          required
-          minLength="2"
-          maxLength="200"
-          type="password"
-          placeholder="Пароль"
-          name="password"
-          className="form__item-auth form__item_el_password"
-          onChange={handleChangeInput}
-          value={formValue.password || ""}
-        />
-        <span id="input-password-error" className="popup__error">Что-то пошло не так...</span>
+          <div className="nameinput-nameuser">Пароль</div>
+          <input
+            id="input-password"
+            required
+            minLength="2"
+            maxLength="200"
+            type="password"
+            placeholder="Пароль"
+            name="password"
+            className="form__item-auth form__item_el_password"
+            onChange={(evt) => password.handleChangeInput(evt)}
+            value={password.formValue || ""}
+            onBlur={(evt) => password.onBlur(evt)}
+          />
+          <span className="input-errors">
+          {(password.isDirty && password.minLengthError || password.maxLengthError) && (
+            <span id="input-password-error" className="popup__error">
+              Пароль должен быть от 6 до 12 символов!
+            </span>
+          )}
+          {password.isDirty && password.isEmpty && (
+            <span id="input-password-error" className="popup__error">
+              Заполните поле!
+            </span>
+          )}
+          </span>
         </div>
-        {/* <button type="submit" className="auth__submit"> */}
-        <button type="submit" className={`${name === 'register' ? 'auth__submit' : 'auth__submit_signin'}`}>
-          {textButton}
-        </button>
+        {name === "register" ? (<button
+          disabled={!nameuser.inputValid || !email.inputValid || !password.inputValid}
+          type="submit"
+          className={`${(!nameuser.inputValid || !email.inputValid || !password.inputValid) && 'auth__submit_disable'} auth__submit`}>{textButton}</button>) :
+          (<button
+            disabled={!email.inputValid || !password.inputValid}
+            type="submit"
+            className={`${(!email.inputValid || !password.inputValid) && 'auth__submit_disable'} auth__submit`}>{textButton}</button>)}
       </form>
 
       {name === "register" ? (
